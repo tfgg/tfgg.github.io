@@ -1,10 +1,11 @@
 ---
-layout: page
+permalink: magres-python/install/
+layout: page_magres
 title:  "Installing MagresPython"
 date:   2014-10-03
 category: magres-python
 categoryname: "MagresPython"
-order: 2
+navorder: 2
 ---
 
 Installing MagresPython
@@ -15,7 +16,7 @@ The following commands should be entered at the command line, usually with a pro
 Prerequisites
 -------------
 
-MagresPython has been tested with Python versions 2.6 and 2.7 and will likely not work with other versions. You should have one of these available on your system, you can test this by running the `python` command from the command line. For example,
+MagresPython has been tested with Python versions 2.6 and 2.7 and will likely not work with other versions. You should have one of these available on your system; you can test this by running the `python` command from the command line. For example,
 
     $ python
     Python 2.7.4 (default, Sep 26 2013, 03:20:26) 
@@ -44,7 +45,7 @@ Only numpy is essential. If you are missing any modules, you can download these 
 Downloading using git
 ---------------------
 
-You can get the latest version of the library using the `git` tool. This may not be installed by default on your system. In some appropriate directory, run the following commands
+You can get the latest version of the library using the `git` tool. This may not be installed by default on your system. In some appropriate directory run the following commands
 
     git clone https://github.com/tfgg/magres-format.git
     cd magres-format
@@ -54,7 +55,7 @@ and then follow the rest of the installation process.
 Downloading the zip
 -------------------
 
-If the `git` tool isn't available, you can download using a command such as curl, which should be available on most systems. In some appropriate directory, run the following commands
+If the `git` tool isn't available, you can download using a command such as curl, which should be available on most systems. In some appropriate directory run the following commands
 
     curl -L "https://github.com/tfgg/magres-format/archive/master.zip" -o "master.zip"
 
@@ -90,7 +91,7 @@ If you are using `bash`, add the following line to your `~/.bashrc`.
 
     export PATH=$HOME/.local/bin:$PATH
 
-If you are using `tcsh`, add the following line to your `~/.bashrc`.
+If you are using `tcsh`, add the following line to your `~/.tcshrc`.
 
     setenv PATH $HOME/.local/bin:$PATH
 

@@ -2,4 +2,5 @@ name: Tim Green
 markdown: redcarpet
 pygments: true
 include: ['_pages', '_posts']
+relative_permalinks: false
 

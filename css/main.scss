@@ -1,0 +1,147 @@
+$header_font: "Droid Sans", sans-serif;
+$body_font: "Droid Serif", serif;
+
+$blue: #428bca;
+
+$light_grey: #EBEBEB;
+$light_blue: #DFEDFF;
+
+$grey_highlight: $light_grey;
+$color_highlight: $light_blue;
+
+$link_color: $blue;
+
+body {
+  margin-top:50px; 
+  font-family: $header_font;
+}
+
+.container {
+  min-height:768px;
+}
+
+a {
+  color: $link_color;
+  
+  &:visited {
+    text-decoration:underline;
+  }
+  
+  &:hover {
+    color: darken($link_color, 20%);
+    text-decoration:underline;
+  }
+
+  &:link {
+    text-decoration:underline;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $header_font;
+}
+
+h1 {
+  font-weight:bold;
+}
+
+p, address {
+  font-family: $body_font;
+}
+
+article {
+  p {
+    text-align:justify;
+  }
+}
+
+ul.github {
+  list-style:none;
+  padding:0;
+
+  li {
+    margin:10px;
+
+    a.link {
+      margin-bottom: 5px;
+      padding: 10px;
+      border: 1px solid #eee;
+      display: block;
+      background: $color_highlight;
+    }
+  }
+}
+
+img.my_face {
+  border-radius:100px;
+}
+
+p.block-highlight {
+  background: $grey_highlight;
+  color: #003;
+  padding:10px;
+  border-radius:5px;
+}
+
+ul.publications {
+  list-style:none;
+  padding:0;
+
+  li {
+    margin-bottom:5px;
+    font-size:0.9em;
+  }
+}
+
+div.logotype {
+  line-height:40px;
+
+  p {  
+    font-size:40px;
+    padding:0;
+    margin:0;
+    font-family: $header_font;
+    font-weight:bold;
+  
+    a:link, a:visited {
+      color:black;
+      text-decoration:none;
+    }
+  }
+
+  img {
+    height:40px;
+  }
+}
+
+
+div.sidebar {
+}
+
+img.thesis_front {
+  border:1px solid #eee;
+  box-shadow: 2px 2px 1px #dddddd;
+}
+
+.footer {
+  margin-top:50px;
+  background:#333;
+  color:white;
+  font-family: $header_font;
+
+  .footer-left {
+    padding-top:20px;
+    padding-bottom:100px;
+    text-align:right;
+  }
+
+  .footer-right {
+    padding-top:20px;
+    padding-bottom:100px;
+    text-align:left;
+  }
+
+  a:link, a:visited {
+    color:white;
+  }
+}

@@ -1,62 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+---
+layout: default
+---
 
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="/css/main.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 sidebar">
-          <div class='logotype'>
-          <img src='/images/my_face.jpg' class='my_face' style='float:left;'/>
-          <p><a href='/'>Tim Green</a></p>
-          </div>
-
-          <h3>{{ page.categoryname }}</h3>
-          <ul>
-          {% for _page in site.pages %}
-              {% if page.category == _page.category %}
-                <li><a href="{{ _page.url }}">{{ _page.title }}</a></li>
-              {% endif %}
-          {% endfor %}
-          </ul>
-
-        </div>
-        <div class="col-md-6">
-          {{ content }}
-        </div>
-        <div class="col-md-3">
-          {{ right_content }}
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 sidebar">
+      <div class='logotype'>
+      <img src='/images/my_face.jpg' class='my_face' style='float:left;'/>
+      <p><a href='/'>Tim Green</a></p>
       </div>
+
+      <h3>{{ page.categoryname }}</h3>
+      <ul>
+      {% assign pages_sorted = site.pages | sort:'navorder' %}
+      {% for _page in pages_sorted %}
+          {{ _page.navorder }}
+          {% if page.category == _page.category %}
+            <li><a href="{{ _page.url }}">{{ _page.title }}</a></li>
+          {% endif %}
+      {% endfor %}
+      </ul>
     </div>
-    <div class="container-fluid">
-      <div class="row footer">
-        <div class='col-md-6 footer-left'>
-          <p><a href='mailto:timothy.green@gmail.com'>timothy.green@gmail.com</a></p>
-          <p><a href='http://twitter.com/tfgg2' target="_blank">Twitter @tfgg2</a></p>
-          <p><a href='http://github.com/tfgg' target='_blank'>Github tfgg</a></p>
-        </div>
-        <div class='col-md-6 footer-right'>
-          <address>
-          Department of Materials<br/>
-          University of Oxford<br/>
-          Parks Road<br/>
-          Oxford OX1 3PH<br/>
-          UK
-          </address>
-        </div>
-      </div>
+    <div class="col-md-6">
+      {{ content }}
     </div>
-  </body>
-</html>
+    <div class="col-md-3">
+      {{ right_content }}
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row footer">
+    <div class='col-md-6 footer-left'>
+      <p><a href='mailto:timothy.green@gmail.com'>timothy.green@gmail.com</a></p>
+      <p><a href='http://twitter.com/tfgg2' target="_blank">Twitter @tfgg2</a></p>
+      <p><a href='http://github.com/tfgg' target='_blank'>Github tfgg</a></p>
+    </div>
+    <div class='col-md-6 footer-right'>
+      <address>
+      Department of Materials<br/>
+      University of Oxford<br/>
+      Parks Road<br/>
+      Oxford OX1 3PH<br/>
+      UK
+      </address>
+    </div>
+  </div>
+</div>
 

@@ -15,8 +15,10 @@ MagresPython is a [Python](http://www.python.org/) library for parsing the [CCP-
 
 The library is designed to be a very expressive way to write code for processing the output of magnetic resonance calculations, interacting well with standard Python conventions and designed ground-up to be Pythonic. You can write code like
 
-    atoms = MagresAtoms.load_magres('ethanol.magres')
-    print atoms.species('H').ms.iso
+```python
+atoms = MagresAtoms.load_magres('ethanol.magres')
+print atoms.species('H').ms.iso
+```
 
 to find the isotropic magnetic shieldings of the hydrogen atoms in an ethanol calculation.
 

@@ -107,7 +107,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 If you are using `tcsh`, add the following line to your `~/.tcshrc`.
 
-```bash
+```tcsh
 setenv PATH $HOME/.local/bin:$PATH
 ```
 

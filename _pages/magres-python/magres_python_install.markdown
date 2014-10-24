@@ -47,8 +47,10 @@ Downloading using git
 
 You can get the latest version of the library using the `git` tool. This may not be installed by default on your system. In some appropriate directory run the following commands
 
-    git clone https://github.com/tfgg/magres-format.git
-    cd magres-format
+```bash
+git clone https://github.com/tfgg/magres-format.git
+cd magres-format
+```
 
 and then follow the rest of the installation process.
 
@@ -57,12 +59,16 @@ Downloading the zip
 
 If the `git` tool isn't available, you can download using a command such as curl, which should be available on most systems. In some appropriate directory run the following commands
 
-    curl -L "https://github.com/tfgg/magres-format/archive/master.zip" -o "master.zip"
+```bash
+curl -L "https://github.com/tfgg/magres-format/archive/master.zip" -o "master.zip"
+```
 
 and then extract the zip file using the unzip command and cd into the extracted directory
 
-    unzip master.zip
-    cd magres-format-master
+```bash
+unzip master.zip
+cd magres-format-master
+```
 
 Installing
 ----------
@@ -72,28 +78,38 @@ Installing the library will give you access to the code and scripts from anywher
 You can now install the library either system wide, which may need superuser privileges, or locally in your user directory, which may require modifying your `PATH` environment variable.
 
 To install system wide, in the directory that you downloaded and extracted the library to, run the following command
-    
-    sudo python setup.py install
+
+```bash
+sudo python setup.py install
+```
 
 you may need to enter a password. If this fails, you may not have superuser privileges, in which case you will have to install locally.
 
 To install locally in your user directory, run the following command
 
-    python setup.py install --user
+```bash
+python setup.py install --user
+```
 
 You may be prompted to add your user `bin` directory to your `PATH` environment variable, or you may find that scripts aren't executing properly. How you fix this depends on what shell you are using. To find out what shell you are using, run the following command
 
-    echo $SHELL
+```bash
+echo $SHELL
+```
 
 If the output is something like `/bin/bash`, then you are running the `bash` shell. If it is something like `/bin/tcsh` then you are running the `tcsh` shell. There are a number of other shells which I won't cover here.
 
 If you are using `bash`, add the following line to your `~/.bashrc`.
 
-    export PATH=$HOME/.local/bin:$PATH
+```bash
+export PATH=$HOME/.local/bin:$PATH
+```
 
 If you are using `tcsh`, add the following line to your `~/.tcshrc`.
 
-    setenv PATH $HOME/.local/bin:$PATH
+```bash
+setenv PATH $HOME/.local/bin:$PATH
+```
 
 Once you have done this you should restart your terminal session.
 
@@ -112,7 +128,9 @@ which should run without error.
 
 To check a script, navigate to a directory, preferably with a calculation in it, and run the following comand in the terminal
 
-    extract-ms.py --help
+```bash
+extract-ms.py --help
+```
 
 which should output the help information for the `extract-ms.py` script.
 

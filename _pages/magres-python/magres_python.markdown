@@ -26,9 +26,3 @@ It is open source and [available on the Github website](https://github.com/tfgg/
 
 It has been tested mostly on Linux (the Ubuntu distribution) and OS X.
 
-Documentation
--------------
-
-1. [Installing the library](/magres-python/install/)
-2. [Using the scripts](/magres-python/scripts/)
-

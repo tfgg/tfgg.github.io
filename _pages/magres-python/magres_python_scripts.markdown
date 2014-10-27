@@ -12,24 +12,10 @@ Available scripts
 
 Some command-line scripts for extracting values from a large number of calculation output files are provided. Look at their help information for detailed instructions. If the script commands don't run correctly, [check the installation guide](/magres-python/install/), especially the section on setting environment variables.
 
-Magnetic shieldings
--------------------
+Atom list specifiers
+--------------------
 
-The `extract-ms.py` command-line script extracts magnetic shieldings from a single or a collection of `.magres` files. The input options are
-
-```bash
-extract-ms.py [-h] [-N] source [atoms]
-```
-
-The `source` is the directory location to look for `.magres` files in, or a specific `.magres` file. If you want to search in the current directly use `.`. Examples:
-
-```bash
-extract-ms.py .
-extract-ms.py calcs
-extract-ms.py ethanol.magres
-```
-
-The `atoms` is an optional argument to specify a subset of atoms to print the shieldings of. You can combine several ways to specify this atoms list.
+All the scripts take an optional argument that specifies a subset of atoms to print the calculated properties (e.g. magnetic shielding) of. You can combine several ways to specify this atoms list.
 
 You can select an entire species
 
@@ -55,7 +41,39 @@ You can also chain these together with commas
     
 will select the first five hydrogen atoms and all oxygen atoms.
 
-Finally, the optional `-h` flag will print the help information,
+Magnetic shieldings
+-------------------
+
+The `extract-ms.py` command-line script extracts magnetic shieldings from a single or a collection of `.magres` files. The input options are
+
+```bash
+extract-ms.py [-h] [-N] source [atoms]
+```
+
+The `source` is the directory location to look for `.magres` files in, or a specific `.magres` file. If you want to search in the current directly use `.`. Examples:
+
+```bash
+extract-ms.py .
+extract-ms.py calcs
+extract-ms.py ethanol.magres
+```
+
+each of which will print something like the following
+
+```
+# Number  Atom  Iso Aniso Asym  Path
+1H1 29.469  8.817 0.137 ./ethanol.magres
+1H2 30.110  8.068 0.211 ./ethanol.magres
+1H3 29.956  7.158 0.061 ./ethanol.magres
+1H4 26.840  8.025 0.952 ./ethanol.magres
+1H5 27.254  -7.043  0.899 ./ethanol.magres
+1H6 31.838  14.111  0.454 ./ethanol.magres
+13C1  157.312 33.765  0.699 ./ethanol.magres
+13C2  110.691 70.018  0.416 ./ethanol.magres
+17O1  267.788 -51.384 0.973 ./ethanol.magres
+```
+
+The optional `-h` flag will print the help information,
 
 ```bash
 extract-ms.py --help

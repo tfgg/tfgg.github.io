@@ -10,50 +10,96 @@ categoryname: "MagresPython"
 Available scripts
 =================
 
-Some utility scripts for extracting values from a large number of calculation output files are provided. Look at their help information for detailed instructions. If the script commands don't run correctly, [check the installation guide](/magres-python/install/), especially the section on setting environment variables.
+Some command-line scripts for extracting values from a large number of calculation output files are provided. Look at their help information for detailed instructions. If the script commands don't run correctly, [check the installation guide](/magres-python/install/), especially the section on setting environment variables.
 
 Magnetic shieldings
 -------------------
 
-The `extract-ms.py` script extracts magnetic shieldings from a single or a collection of `.magres` files.
+The `extract-ms.py` command-line script extracts magnetic shieldings from a single or a collection of `.magres` files. The input options are
 
-For magnetic shieldings (chemical shifts)
+```bash
+extract-ms.py [-h] [-N] source [atoms]
+```
 
-    extract-ms.py --help
-    
-For electric field gradients (quadrupolar couplings)
-    
-    extract-efg.py --help
+The `source` is the directory location to look for `.magres` files in, or a specific `.magres` file. If you want to search in the current directly use `.`. Examples:
 
-For J-couplings (indirect spin-spin coupling)
+```bash
+extract-ms.py .
+extract-ms.py calcs
+extract-ms.py ethanol.magres
+```
 
-    extract-jc.py --help
+The `atoms` is an optional argument to specify a subset of atoms to print the shieldings of. You can combine several ways to specify this atoms list.
 
-These scripts can be called with an atom list to restrict which atoms or couplings are shown. These can select an entire species
+You can select an entire species
 
     H
     
-will select all hydrogen atoms. They can select a single atom
+will select all hydrogen atoms.
+
+You can select a single atom
 
     H2
     
-will select the second hydrogen atom. They select ranges of atoms
+will select the second hydrogen atom.
+
+You can select ranges of atoms
 
     H2-5
     
-will select the second to fifth hydrogen atoms. These can also be chained together with commas
+will select the second to fifth hydrogen atoms.
+
+You can also chain these together with commas
 
     H1-5,O
     
 will select the first five hydrogen atoms and all oxygen atoms.
 
+Finally, the optional `-h` flag will print the help information,
+
+```bash
+extract-ms.py --help
+```
+
+and the optional `-N` flag is a tool for convergence calculations. If your calculations have a structure such as
+
+```bash
+calcs/cut_off_energy=20/ethanol.magres
+calcs/cut_off_energy=30/ethanol.magres
+calcs/cut_off_energy=40/ethanol.magres
+calcs/cut_off_energy=50/ethanol.magres
+calcs/cut_off_energy=60/ethanol.magres
+```
+
+or
+
+```bash
+calcs/ethanol-20.magres
+calcs/ethanol-30.magres
+calcs/ethanol-40.magres
+calcs/ethanol-50.magres
+calcs/ethanol-60.magres
+```
+
+then the `-N` flag will attempt to parse out any numbers in the path and add them as columns to the beginning of the script output. This makes it easy to pipe the output to a data file and plot it using a tool such as `gnuplot`.
+
+Electric field gradients
+------------------------
+    
+For electric field gradients (quadrupolar couplings)
+    
+    extract-efg.py --help
+
+J-couplings
+-----------
+
+For J-couplings (indirect spin-spin coupling)
+
+    extract-jc.py --help
+
 For example,
 
     extract-ms.py . Zn
-
-will print only the magnetic shieldings of zinc atoms in all the `.magres` files found in the current directory.
-
-The `-N` flag optionally outputs in the first columns of the output an attempt at parsing out numbers in a path. This is useful for convergence tests. E.g. the path `grid_scale=2/energy_cut_off=80/ethanol.magres` will output the numbers 2.0 and 80.0 in the first two output columns.
 
 Conversion script usage
 -----------------------

@@ -83,6 +83,39 @@ calcs/ethanol-60.magres
 
 then the `-N` flag will attempt to parse out any numbers in the path and add them as columns to the beginning of the script output. This makes it easy to pipe the output to a data file and plot it using a tool such as `gnuplot`.
 
+For example, the following will extract the magnetic shieldings for the C1 carbon atom in ethanol from a sequence of cut-off energy convergence calculations
+
+```
+20ry/ethanol.magres
+30ry/ethanol.magres
+40ry/ethanol.magres
+50ry/ethanol.magres
+60ry/ethanol.magres
+```
+
+and write them to a file called `out.dat`
+
+```bash
+  extract-ms.py -N . C1 > out.dat
+```
+
+and the contents of `out.dat` is now
+
+```
+# Number  Atom  Iso Aniso Asym  Path
+20.0  13C1  176.526 32.537  0.676 ./20ry/ethanol.magres
+30.0  13C1  161.170 33.686  0.707 ./30ry/ethanol.magres
+40.0  13C1  157.699 33.744  0.700 ./40ry/ethanol.magres
+50.0  13C1  157.312 33.765  0.699 ./50ry/ethanol.magres
+60.0  13C1  157.351 33.769  0.699 ./60ry/ethanol.magres
+```
+
+which can be plotted as a graph using the `gnuplot` command
+
+```gnuplot
+plot 'out.dat' u 1:3 w lp
+```
+
 Electric field gradients
 ------------------------
     

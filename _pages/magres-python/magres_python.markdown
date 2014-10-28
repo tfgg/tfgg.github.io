@@ -10,14 +10,16 @@ navorder: 1
 
 **MagresPython** is a [Python](http://www.python.org/) library for parsing the [CCP-NC ab-initio magnetic resonance file format](http://www.ccpnc.ac.uk/pmwiki.php/CCPNC/Fileformat). This is used in the latest version of the [CASTEP](http://www.castep.org/) code, and is coming soon to other codes such as [Quantum ESPRESSO](http://www.quantum-espresso.org/).
 
-The library is designed to be a very expressive way to write code for processing the output of magnetic resonance calculations, interacting well with standard Python conventions, designed from the ground-up to be Pythonic. You can write code like
+The library is designed to be a very expressive way to write code for processing the output of magnetic resonance calculations, interacting well with standard Python conventions, designed from the ground-up to be Pythonic.
+
+Loading the output of a calculation on an ethanol molecule and printing all the isotropic magnetic shieldings of hydrogen atoms is as easy as
 
 ```python
 atoms = MagresAtoms.load_magres('ethanol.magres')
 print atoms.species('H').ms.iso
 ```
 
-to print the isotropic magnetic shieldings of the hydrogen atoms in an ethanol calculation. It also comes with a number of command line helper scripts for use in the course of research.
+The library also comes with [a number of command line helper scripts](/magres-python/scripts) for use in the course of research, such as `extract-ms.py`.
 
 It is open source and [available on the Github website](https://github.com/tfgg/magres-format).
 

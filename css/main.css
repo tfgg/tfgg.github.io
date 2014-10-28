@@ -1,9 +1,18 @@
-body {
+.footer {
   margin-top: 50px;
+  background: #333;
+  color: white;
   font-family: "Droid Sans", sans-serif; }
-
-.container {
-  min-height: 768px; }
+  .footer .footer-left {
+    padding-top: 20px;
+    padding-bottom: 100px;
+    text-align: right; }
+  .footer .footer-right {
+    padding-top: 20px;
+    padding-bottom: 100px;
+    text-align: left; }
+  .footer a:link, .footer a:visited {
+    color: white; }
 
 a {
   color: #428bca; }
@@ -26,6 +35,13 @@ p, address {
 
 article p {
   text-align: justify; }
+
+body {
+  margin-top: 50px;
+  font-family: "Droid Sans", sans-serif; }
+
+.container {
+  min-height: 768px; }
 
 ul.github {
   list-style: none;
@@ -72,19 +88,3 @@ div.logotype {
 img.thesis_front {
   border: 1px solid #eee;
   box-shadow: 2px 2px 1px #dddddd; }
-
-.footer {
-  margin-top: 50px;
-  background: #333;
-  color: white;
-  font-family: "Droid Sans", sans-serif; }
-  .footer .footer-left {
-    padding-top: 20px;
-    padding-bottom: 100px;
-    text-align: right; }
-  .footer .footer-right {
-    padding-top: 20px;
-    padding-bottom: 100px;
-    text-align: left; }
-  .footer a:link, .footer a:visited {
-    color: white; }

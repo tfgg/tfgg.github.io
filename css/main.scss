@@ -1,15 +1,4 @@
-$header_font: "Droid Sans", sans-serif;
-$body_font: "Droid Serif", serif;
-
-$blue: #428bca;
-
-$light_grey: #EBEBEB;
-$light_blue: #DFEDFF;
-
-$grey_highlight: $light_grey;
-$color_highlight: $light_blue;
-
-$link_color: $blue;
+@import "default.scss";
 
 body {
   margin-top:50px; 
@@ -20,40 +9,6 @@ body {
   min-height:768px;
 }
 
-a {
-  color: $link_color;
-  
-  &:visited {
-    text-decoration:underline;
-  }
-  
-  &:hover {
-    color: darken($link_color, 20%);
-    text-decoration:underline;
-  }
-
-  &:link {
-    text-decoration:underline;
-  }
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: $header_font;
-}
-
-h1 {
-  font-weight:bold;
-}
-
-p, address {
-  font-family: $body_font;
-}
-
-article {
-  p {
-    text-align:justify;
-  }
-}
 
 ul.github {
   list-style:none;
@@ -114,34 +69,9 @@ div.logotype {
   }
 }
 
-
-div.sidebar {
-}
-
 img.thesis_front {
   border:1px solid #eee;
   box-shadow: 2px 2px 1px #dddddd;
 }
 
-.footer {
-  margin-top:50px;
-  background:#333;
-  color:white;
-  font-family: $header_font;
 
-  .footer-left {
-    padding-top:20px;
-    padding-bottom:100px;
-    text-align:right;
-  }
-
-  .footer-right {
-    padding-top:20px;
-    padding-bottom:100px;
-    text-align:left;
-  }
-
-  a:link, a:visited {
-    color:white;
-  }
-}

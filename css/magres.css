@@ -1,0 +1,75 @@
+.footer {
+  margin-top: 50px;
+  background: #333;
+  color: white;
+  font-family: "Droid Sans", sans-serif; }
+  .footer .footer-left {
+    padding-top: 20px;
+    padding-bottom: 100px;
+    text-align: right; }
+  .footer .footer-right {
+    padding-top: 20px;
+    padding-bottom: 100px;
+    text-align: left; }
+  .footer a:link, .footer a:visited {
+    color: white; }
+
+a {
+  color: #428bca; }
+  a:visited {
+    text-decoration: underline; }
+  a:hover {
+    color: #245682;
+    text-decoration: underline; }
+  a:link {
+    text-decoration: underline; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "Droid Sans", sans-serif; }
+
+h1 {
+  font-weight: bold; }
+
+p, address {
+  font-family: "Droid Serif", serif; }
+
+article p {
+  text-align: justify; }
+
+body {
+  margin-top: 0; }
+
+h1 {
+  margin-top: 0; }
+
+h3 {
+  margin-top: 0; }
+
+.top-bar {
+  background: #2a3836;
+  padding: 0.25em;
+  color: white; }
+  .top-bar .inner {
+    width: 1170px;
+    margin: auto; }
+  .top-bar a {
+    text-decoration: underline; }
+    .top-bar a:link {
+      color: white; }
+    .top-bar a:visited {
+      color: white; }
+
+.magres_heder {
+  /*background:url('/images/magres_heder.png');*/
+  background-color: #C53B3B;
+  padding: 1em;
+  height: 15em;
+  margin-bottom: 2em;
+  color: white; }
+  .magres_heder .inner {
+    width: 1170px;
+    margin: auto;
+    vertical-align: bottom; }
+    .magres_heder .inner h1 {
+      margin-top: 3.9em;
+      margin-left: 25%; }

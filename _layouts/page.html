@@ -1,5 +1,6 @@
 ---
 layout: default
+css: main.css
 ---
 
 <div class="container">
@@ -10,15 +11,6 @@ layout: default
       <p><a href='/'>Tim Green</a></p>
       </div>
 
-      <h3>{{ page.categoryname }}</h3>
-      <ul>
-      {% assign pages_sorted = site.pages | sort:'navorder' %}
-      {% for _page in pages_sorted %}
-          {{ _page.navorder }}
-          {% if page.category == _page.category %}
-            <li><a href="{{ _page.url }}">{{ _page.title }}</a></li>
-          {% endif %}
-      {% endfor %}
       </ul>
     </div>
     <div class="col-md-6">

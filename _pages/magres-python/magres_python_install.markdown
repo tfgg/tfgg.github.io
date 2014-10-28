@@ -8,8 +8,8 @@ categoryname: "MagresPython"
 navorder: 2
 ---
 
-Installing MagresPython
-=======================
+Installing 
+==========
 
 The following commands should be entered at the command line, usually with a program called something like `Terminal`. Incidentally, if you are using OS X, I recommend [iTerm2](http://iterm2.com/) as a good terminal to work with.
 
@@ -42,8 +42,7 @@ You can test if you have these modules by opening a `python` shell and executing
 
 Only numpy is essential. If you are missing any modules, you can download these using the `pip` Python package manager, your operating system package manager, or by loading modules on your HPC.
 
-Downloading using git
----------------------
+### Downloading using git
 
 You can get the latest version of the library using the `git` tool. This may not be installed by default on your system. In some appropriate directory run the following commands
 
@@ -54,8 +53,7 @@ cd magres-format
 
 and then follow the rest of the installation process.
 
-Downloading the zip
--------------------
+### Downloading the zip
 
 If the `git` tool isn't available, you can download using a command such as curl, which should be available on most systems. In some appropriate directory run the following commands
 

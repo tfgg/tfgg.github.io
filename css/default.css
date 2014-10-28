@@ -35,3 +35,6 @@ p, address {
 
 article p {
   text-align: justify; }
+
+strong, bold {
+  font-weight: 700; }

@@ -8,7 +8,7 @@ categoryname: "MagresPython"
 navorder: 1
 ---
 
-MagresPython is a [Python](http://www.python.org/) library for parsing the [CCP-NC ab-initio magnetic resonance file format](http://www.ccpnc.ac.uk/pmwiki.php/CCPNC/Fileformat). This is used in the latest version of the [CASTEP](http://www.castep.org/) code, and is coming soon to other codes such as [Quantum ESPRESSO](http://www.quantum-espresso.org/).
+**MagresPython** is a [Python](http://www.python.org/) library for parsing the [CCP-NC ab-initio magnetic resonance file format](http://www.ccpnc.ac.uk/pmwiki.php/CCPNC/Fileformat). This is used in the latest version of the [CASTEP](http://www.castep.org/) code, and is coming soon to other codes such as [Quantum ESPRESSO](http://www.quantum-espresso.org/).
 
 The library is designed to be a very expressive way to write code for processing the output of magnetic resonance calculations, interacting well with standard Python conventions, designed from the ground-up to be Pythonic. You can write code like
 

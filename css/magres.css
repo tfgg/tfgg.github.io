@@ -36,6 +36,9 @@ p, address {
 article p {
   text-align: justify; }
 
+strong, bold {
+  font-weight: 700; }
+
 body {
   margin-top: 0; }
 
@@ -60,7 +63,7 @@ h3 {
       color: white; }
 
 .magres_heder {
-  /*background:url('/images/magres_heder.png');*/
+  background: url("/images/magres_heder.png");
   background-color: #C53B3B;
   padding: 1em;
   height: 15em;

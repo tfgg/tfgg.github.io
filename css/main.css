@@ -36,6 +36,9 @@ p, address {
 article p {
   text-align: justify; }
 
+strong, bold {
+  font-weight: 700; }
+
 body {
   margin-top: 50px;
   font-family: "Droid Sans", sans-serif; }

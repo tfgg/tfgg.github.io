@@ -12,8 +12,7 @@ Available scripts
 
 Some command-line scripts for extracting values from a large number of calculation output files are provided. Look at their help information for detailed instructions. If the script commands don't run correctly, [check the installation guide](/magres-python/install/), especially the section on setting environment variables.
 
-Atom list specifiers
---------------------
+### Atom list specifiers
 
 All the scripts take an optional argument that specifies a subset of atoms to print the calculated properties (e.g. magnetic shielding) of. You can combine several ways to specify this atoms list.
 

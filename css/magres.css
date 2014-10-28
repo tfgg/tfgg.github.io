@@ -42,11 +42,28 @@ strong, bold {
 body {
   margin-top: 0; }
 
-h1 {
-  margin-top: 0; }
+a {
+  color: #8b2929; }
+  a:visited {
+    color: #9e2f2f; }
+  a:link {
+    color: #8b2929; }
 
-h3 {
+.sidebar h1 {
   margin-top: 0; }
+.sidebar h3 {
+  margin-top: 0; }
+.sidebar ul {
+  list-style: none;
+  padding: 0; }
+  .sidebar ul li {
+    margin: 10px; }
+    .sidebar ul li a.link {
+      margin-bottom: 5px;
+      padding: 10px;
+      border: 1px solid #eee;
+      display: block;
+      background: #f4d8d8; }
 
 .top-bar {
   background: #2a3836;
@@ -75,4 +92,5 @@ h3 {
     vertical-align: bottom; }
     .magres_heder .inner h1 {
       margin-top: 3.9em;
-      margin-left: 25%; }
+      margin-left: 25%;
+      margin-right: 25%; }

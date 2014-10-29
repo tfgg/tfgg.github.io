@@ -42,12 +42,14 @@ strong, bold {
 body {
   margin-top: 0; }
 
-a {
+a:link {
   color: #8b2929; }
-  a:visited {
-    color: #9e2f2f; }
-  a:link {
-    color: #8b2929; }
+a:hover {
+  color: #631d1d; }
+a:visited {
+  color: #8b2929; }
+a:active {
+  color: #8b2929; }
 
 .content h1:first-child, .content h2:first-child, .content h3:first-child, .content h4:first-child, .content h5:first-child {
   margin-top: 0; }
@@ -61,11 +63,16 @@ a {
   .sidebar ul {
     list-style: none;
     padding: 0; }
-    .sidebar ul li a.link {
+    .sidebar ul li a {
       margin-bottom: 5px;
       padding: 10px;
-      display: block;
-      background: #f4d8d8; }
+      display: block; }
+      .sidebar ul li a:hover {
+        color: #631d1d; }
+      .sidebar ul li a.link {
+        background: #f4d8d8; }
+      .sidebar ul li a.external {
+        border: 1px solid #eee; }
 
 .top-bar {
   background: #2a3836;

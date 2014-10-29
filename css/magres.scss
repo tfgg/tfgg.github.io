@@ -1,20 +1,27 @@
 @import "default.scss";
 
 $color_highlight: #C53B3B;
+$link_color: darken($color_highlight, 15%);
 
 body {
   margin-top:0; 
 }
 
 a {
-  color: darken($color_highlight, 15%);
-
-  &:visited {
-    color: darken($color_highlight, 10%);
+  &:link {
+    color: $link_color;
   }
 
-  &:link {
-    color: darken($color_highlight, 15%);
+  &:hover {
+    color: darken($link_color, 10%);
+  }
+
+  &:visited {
+    color: $link_color;
+  }
+  
+  &:active {
+    color: $link_color;
   }
 }
 
@@ -42,11 +49,22 @@ a {
     padding:0;
 
     li {
-      a.link {
+      a {
         margin-bottom: 5px;
         padding: 10px;
         display: block;
-        background: lighten($color_highlight, 40%);
+          
+        &:hover {
+          color: darken($link_color, 10%);
+        }
+
+        &.link {
+          background: lighten($color_highlight, 40%);
+        }
+
+        &.external {
+          border: 1px solid #eee;
+        }
       }
     }
   }

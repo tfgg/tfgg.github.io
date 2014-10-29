@@ -18,7 +18,17 @@ a {
   }
 }
 
+.content {
+  h1, h2, h3, h4, h5 {
+    &:first-child {
+      margin-top:0;
+    }
+  }
+}
+
 .sidebar {
+  text-align:center;
+
   h1 {
     margin-top:0;
   }
@@ -32,12 +42,9 @@ a {
     padding:0;
 
     li {
-      margin:10px;
-
       a.link {
         margin-bottom: 5px;
         padding: 10px;
-        border: 1px solid #eee;
         display: block;
         background: lighten($color_highlight, 40%);
       }

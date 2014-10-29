@@ -49,19 +49,21 @@ a {
   a:link {
     color: #8b2929; }
 
-.sidebar h1 {
+.content h1:first-child, .content h2:first-child, .content h3:first-child, .content h4:first-child, .content h5:first-child {
   margin-top: 0; }
-.sidebar h3 {
-  margin-top: 0; }
-.sidebar ul {
-  list-style: none;
-  padding: 0; }
-  .sidebar ul li {
-    margin: 10px; }
+
+.sidebar {
+  text-align: center; }
+  .sidebar h1 {
+    margin-top: 0; }
+  .sidebar h3 {
+    margin-top: 0; }
+  .sidebar ul {
+    list-style: none;
+    padding: 0; }
     .sidebar ul li a.link {
       margin-bottom: 5px;
       padding: 10px;
-      border: 1px solid #eee;
       display: block;
       background: #f4d8d8; }
 

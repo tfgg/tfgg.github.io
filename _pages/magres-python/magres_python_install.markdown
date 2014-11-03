@@ -57,7 +57,7 @@ You can test if you have these modules by opening a `python` shell and executing
 
 Only numpy is essential. If you are missing any modules, you can download these using the `pip` Python package manager, your operating system package manager, or by loading modules on your HPC.
 
-### Downloading using git
+### Downloading using git (recommended)
 
 You can get the latest version of the library using the `git` tool. This may not be installed by default on your system. In some appropriate directory run the following commands
 
@@ -66,7 +66,7 @@ git clone https://github.com/tfgg/magres-format.git
 cd magres-format
 ```
 
-and then follow the rest of the installation process.
+and then follow the rest of the installation process. This is the recommended way to get MagresPython as it will allow you to easily get future updates by running the `git pull` command in the `magres-format` directory.
 
 ### Downloading the zip
 

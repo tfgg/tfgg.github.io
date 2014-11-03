@@ -13,6 +13,20 @@ Installing
 
 The following commands should be entered at the command line, usually with a program called something like `Terminal`. Incidentally, if you are using OS X, I recommend [iTerm2](http://iterm2.com/) as a good terminal to work with.
 
+Summary
+-------
+
+Install Python and necessary packages using [Anaconda](https://store.continuum.io/cshop/anaconda/).
+
+```bash
+cd ~
+git clone https://github.com/tfgg/magres-format.git
+cd magres-format
+python setup.py install --user
+```
+
+If you have trouble with this, there are more detailed instructions below.
+
 Prerequisites
 -------------
 
@@ -25,6 +39,8 @@ MagresPython has been tested with Python versions 2.6 and 2.7 and will likely no
     >>> 
 
 which gives a Python version of 2.7.4, which is fine.
+
+An easy way to get Python and all of the necessary packages installed is [the Anaconda distribution](https://store.continuum.io/cshop/anaconda/).
 
 If not, you should find out how to get it, preferably by your operating system's package manager, such as `apt` on the Debian and Ubuntu flavours of Linux. If you are using a high-performance computing (HPC) facility, such as [ARCHER](https://www.archer.ac.uk), it may be available as a module that you can load.
 

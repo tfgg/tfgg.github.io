@@ -18,6 +18,9 @@ Loading the output of a calculation on an ethanol molecule and printing all the 
 atoms = MagresAtoms.load_magres('ethanol.magres')
 print atoms.species('H').ms.iso
 ```
+```
+[30.0, 30.0, 30.0, 27.0, 27.0, 32.0]
+```
 
 The library also comes with [a number of command line helper scripts](/magres-python/scripts) for use in the course of research, such as `extract-ms.py`.
 

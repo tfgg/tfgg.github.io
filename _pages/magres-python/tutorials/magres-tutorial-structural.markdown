@@ -66,15 +66,17 @@ for atom_Al in atoms.species('Al')[:2]:
         print atom_Al, atom_O, atoms.dist(atom_Al, atom_O)
 ```
 
-    27Al1 17O1 1.76233623353
-    27Al1 17O18 1.75419940144
-    27Al1 17O31 1.76324628229
-    27Al1 17O44 1.75655859851
-    27Al2 17O5 1.75237010931
-    27Al2 17O6 1.72876661236
-    27Al2 17O7 1.77878020002
-    27Al2 17O8 1.76119987509
-
+<div class='stream'>
+<pre>27Al1 17O1 1.76233623353
+27Al1 17O18 1.75419940144
+27Al1 17O31 1.76324628229
+27Al1 17O44 1.75655859851
+27Al2 17O5 1.75237010931
+27Al2 17O6 1.72876661236
+27Al2 17O7 1.77878020002
+27Al2 17O8 1.76119987509
+</pre>
+</div>
 
 We could take a mean to find out the average Al-O bond length, with a standard
 deviation.
@@ -90,8 +92,10 @@ for atom_Al in atoms.species('Al'):
 print "Mean bond length =", mean(dists), "+-", std(dists)
 ```
 
-    Mean bond length = 1.75230470421 +- 0.0209888992786
-
+<div class='stream'>
+<pre>Mean bond length = 1.75230470421 +- 0.0209888992786
+</pre>
+</div>
 
 And we could even plot a histogram of the Al-O bond length distribution.
 
@@ -164,8 +168,10 @@ for atom_Al in atoms.species('Al'):
 print "Mean bond angle =", mean(angles), "+-", std(angles)
 ```
 
-    Mean bond angle = 119.244646177 +- 5.4306395789
-
+<div class='stream'>
+<pre>Mean bond angle = 119.244646177 +- 5.4306395789
+</pre>
+</div>
 
 Plotting this distribution as a histogram we can see that there are two
 populations of bond angles, corresponding to the T1 (four-coordinated) and T2

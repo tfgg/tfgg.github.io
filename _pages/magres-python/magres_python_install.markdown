@@ -16,7 +16,7 @@ The following commands should be entered at the command line, usually with a pro
 Summary
 -------
 
-Install Python and necessary packages using [Anaconda](https://store.continuum.io/cshop/anaconda/).
+Install Python and necessary packages using [Anaconda](https://store.continuum.io/cshop/anaconda/) then run the following commands in a terminal.
 
 ```bash
 cd ~

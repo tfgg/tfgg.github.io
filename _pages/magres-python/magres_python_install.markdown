@@ -8,8 +8,8 @@ categoryname: "MagresPython"
 navorder: 2
 ---
 
-Installing 
-==========
+Installing and updating
+=======================
 
 The following commands should be entered at the command line, usually with a program called something like `Terminal`. Incidentally, if you are using OS X, I recommend [iTerm2](http://iterm2.com/) as a good terminal to work with.
 
@@ -25,6 +25,13 @@ python setup.py install --user
 ```
 
 If you have trouble with this, there are more detailed instructions below.
+
+To update to the latest version, `cd` into the `magres-format` folder and run
+
+```bash
+git pull
+python setup.py install --user
+```
 
 Prerequisites
 -------------

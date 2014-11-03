@@ -13,8 +13,7 @@ Installing
 
 The following commands should be entered at the command line, usually with a program called something like `Terminal`. Incidentally, if you are using OS X, I recommend [iTerm2](http://iterm2.com/) as a good terminal to work with.
 
-Summary
--------
+### Summary
 
 Install Python and necessary packages using [Anaconda](https://store.continuum.io/cshop/anaconda/) then run the following commands in a terminal.
 

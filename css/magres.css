@@ -91,15 +91,17 @@ a:active {
 .magres_heder {
   background: url("/images/magres_heder.png");
   background-color: #C53B3B;
-  padding: 1em;
-  height: 15em;
-  margin-bottom: 2em;
+  padding: 10px;
+  margin-bottom: 20px;
   color: white; }
-  .magres_heder .inner {
-    width: 1170px;
-    margin: auto;
-    vertical-align: bottom; }
-    .magres_heder .inner h1 {
-      margin-top: 3.9em;
-      margin-left: 25%;
-      margin-right: 25%; }
+  .magres_heder .inner h1 {
+    margin-top: 120px;
+    font-size: 40px;
+    line-height: 50px; }
+
+code[data-lang="text"]:parent {
+  background: none;
+  border: 0; }
+
+.stream pre {
+  background: none; }

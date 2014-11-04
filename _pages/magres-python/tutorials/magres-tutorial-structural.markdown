@@ -116,7 +116,7 @@ hist(dists, bins=20)
 </div>
 
 
-![png](/home/green/Dropbox/personal_website/jekyll/images/tutorials/magres-tutorial-structural_13_1.png)
+![png](/images/tutorials/magres-tutorial-structural_13_1.png)
 
 
 Bond angles
@@ -199,5 +199,5 @@ hist(angles, bins=20)
 </div>
 
 
-![png](/home/green/Dropbox/personal_website/jekyll/images/tutorials/magres-tutorial-structural_22_1.png)
+![png](/images/tutorials/magres-tutorial-structural_22_1.png)
 

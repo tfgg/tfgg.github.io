@@ -105,8 +105,8 @@ hist(dists, bins=20)
 ```
 
 <div class='stream'>
-<pre>(array([ 4,  2,  4, 10, 12, 12, 20, 16, 11, 15, 12, 23, 12, 14, 11,  3,  3,
-         2,  3,  3]),
+<pre>(array([  4.,   2.,   4.,  10.,  12.,  12.,  20.,  16.,  11.,  15.,  12.,
+         23.,  12.,  14.,  11.,   3.,   3.,   2.,   3.,   3.]),
  array([ 1.70591764,  1.71088507,  1.7158525 ,  1.72081992,  1.72578735,
          1.73075478,  1.7357222 ,  1.74068963,  1.74565706,  1.75062449,
          1.75559191,  1.76055934,  1.76552677,  1.7704942 ,  1.77546162,
@@ -114,6 +114,10 @@ hist(dists, bins=20)
          1.80526619]),
  &lt;a list of 20 Patch objects&gt;)</pre>
 </div>
+
+
+![png](/home/green/Dropbox/personal_website/jekyll/images/tutorials/magres-tutorial-structural_13_1.png)
+
 
 Bond angles
 -----------
@@ -183,8 +187,8 @@ hist(angles, bins=20)
 ```
 
 <div class='stream'>
-<pre>(array([ 6, 20, 22, 26, 16, 16,  8, 13, 14,  3,  0,  0,  0,  6,  4,  4,  3,
-         1,  4,  2]),
+<pre>(array([  6.,  20.,  22.,  26.,  16.,  16.,   8.,  13.,  14.,   3.,   0.,
+          0.,   0.,   6.,   4.,   4.,   3.,   1.,   4.,   2.]),
  array([ 112.17244747,  113.33907751,  114.50570755,  115.67233759,
          116.83896763,  118.00559767,  119.17222771,  120.33885775,
          121.5054878 ,  122.67211784,  123.83874788,  125.00537792,
@@ -193,3 +197,7 @@ hist(angles, bins=20)
          135.50504828]),
  &lt;a list of 20 Patch objects&gt;)</pre>
 </div>
+
+
+![png](/home/green/Dropbox/personal_website/jekyll/images/tutorials/magres-tutorial-structural_22_1.png)
+

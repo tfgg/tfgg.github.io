@@ -63,6 +63,10 @@ a:active {
   .sidebar ul {
     list-style: none;
     padding: 0; }
+    .sidebar ul li.group {
+      padding: 10px;
+      border: 1px solid #eee;
+      margin-bottom: 5px; }
     .sidebar ul li a {
       margin-bottom: 5px;
       padding: 10px;

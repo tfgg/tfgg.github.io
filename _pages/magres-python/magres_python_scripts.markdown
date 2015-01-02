@@ -12,7 +12,7 @@ Available scripts
 
 Some command-line scripts for extracting values from a large number of calculation output files are provided. Look at their help information for detailed instructions. If the script commands don't run correctly, [check the installation guide](/magres-python/install/), especially the section on setting environment variables.
 
-### Atom list specifiers
+### <a id="atom_lists"></a>Atom list specifiers
 
 All the scripts take an optional argument that specifies a subset of atoms to print the calculated properties (e.g. magnetic shielding) of. You can combine several ways to specify this atoms list.
 
@@ -48,6 +48,18 @@ The `extract-ms.py` command-line script extracts magnetic shieldings from a sing
 ```bash
 extract-ms.py [-h] [-N] source [atoms]
 ```
+
+<table class="table table-striped">
+<thead>
+<tr><th>Field</th> <th>Usage</th></tr>
+</thead>
+<tbody>
+<tr><td>-h</td> <td>Show help <small>(option)</small></td></tr>
+<tr><td>-N</td> <td>Parse numbers from path <small>(option)</small></td></tr>
+<tr><td>source</td> <td>Directory of .magres files, or single file</td></tr>
+<tr><td>atoms</td> <td><a href="#atom_lists">Atom list</a> string specifying subset to print <small>(option)</small></td></tr>
+</tbody>
+</table>
 
 The `source` is the directory location to look for `.magres` files in, or a specific `.magres` file. If you want to search in the current directly use `.`. Examples:
 
@@ -136,20 +148,106 @@ plot 'out.dat' u 1:3 w lp
 Electric field gradients
 ------------------------
     
-For electric field gradients (quadrupolar couplings)
-    
-    extract-efg.py --help
+Similar to `extract-ms.py`, `extract-efg.py` is for extracting electric field gradients (quadrupolar couplings) from a collection of `.magres` files. The input options are
+
+```bash
+extract-efg.py [-h] [-N] source [atoms]
+```
+
+<table class="table table-striped">
+<thead>
+<tr><th>Field</th> <th>Usage</th></tr>
+</thead>
+<tbody>
+<tr><td>-h</td> <td>Show help <small>(option)</small></td></tr>
+<tr><td>-N</td> <td>Parse numbers from path <small>(option)</small></td></tr>
+<tr><td>source</td> <td>Directory of .magres files, or single file</td></tr>
+<tr><td>atoms</td> <td><a href="#atom_lists">Atom list</a> string specifying subset to print <small>(option)</small></td></tr>
+</tbody>
+</table>
+
+As with `extract-ms.py`, the `source` is the directory containing the `.magres` files, or a specific `.magres file`, the `-h` option will display the help information and `-N` will try to extract and output numerical parameters from the calculation paths.
+
+An example output for the fluorine EFGs on the first eight fluorine atoms in a given calculation
+
+```bash
+extract-efg.py Pb2ZnF6-MD-1000 F1-8
+```
+
+```
+# Atom  Cq  Eta Path
+19F1  -16.25  -0.39 Pb2ZnF6-MD-1000/Pb2ZnF6-MD-1000.magres
+19F2  -17.88  -0.29 Pb2ZnF6-MD-1000/Pb2ZnF6-MD-1000.magres
+19F3  -14.61  -0.55 Pb2ZnF6-MD-1000/Pb2ZnF6-MD-1000.magres
+19F4  -13.47  -0.45 Pb2ZnF6-MD-1000/Pb2ZnF6-MD-1000.magres
+19F5  -18.19  -0.41 Pb2ZnF6-MD-1000/Pb2ZnF6-MD-1000.magres
+19F6  -16.98  -0.51 Pb2ZnF6-MD-1000/Pb2ZnF6-MD-1000.magres
+19F7  -16.23  -0.13 Pb2ZnF6-MD-1000/Pb2ZnF6-MD-1000.magres
+19F8  -8.50 -0.88 Pb2ZnF6-MD-1000/Pb2ZnF6-MD-1000.magres
+```
+
+or the (snipped) output of the EFG on the first fluorine atom over an entire MD run, using the `-N` option to provide a time counter in the first set of columns, amongst other junk.
+
+```
+# Number  Atom  Cq  Eta Path
+2.0 6.0 1000.0 2.0 6.0 1000.0 19F1  -16.25  -0.39 ./Pb2ZnF6-MD-1000/Pb2ZnF6-MD-1000.magres
+2.0 6.0 1200.0 2.0 6.0 1200.0 19F1  -14.04  -0.47 ./Pb2ZnF6-MD-1200/Pb2ZnF6-MD-1200.magres
+2.0 6.0 1400.0 2.0 6.0 1400.0 19F1  -15.55  -0.45 ./Pb2ZnF6-MD-1400/Pb2ZnF6-MD-1400.magres
+2.0 6.0 1600.0 2.0 6.0 1600.0 19F1  -21.41  -0.35 ./Pb2ZnF6-MD-1600/Pb2ZnF6-MD-1600.magres
+2.0 6.0 1800.0 2.0 6.0 1800.0 19F1  -17.68  -0.39 ./Pb2ZnF6-MD-1800/Pb2ZnF6-MD-1800.magres
+2.0 6.0 2000.0 2.0 6.0 2000.0 19F1  -14.93  -0.82 ./Pb2ZnF6-MD-2000/Pb2ZnF6-MD-2000.magres
+2.0 6.0 2200.0 2.0 6.0 2200.0 19F1  -14.72  -0.51 ./Pb2ZnF6-MD-2200/Pb2ZnF6-MD-2200.magres
+2.0 6.0 2400.0 2.0 6.0 2400.0 19F1  -14.46  -0.52 ./Pb2ZnF6-MD-2400/Pb2ZnF6-MD-2400.magres
+2.0 6.0 2600.0 2.0 6.0 2600.0 19F1  -18.44  -0.61 ./Pb2ZnF6-MD-2600/Pb2ZnF6-MD-2600.magres
+2.0 6.0 2800.0 2.0 6.0 2800.0 19F1  -18.37  -0.29 ./Pb2ZnF6-MD-2800/Pb2ZnF6-MD-2800.magres
+2.0 6.0 3000.0 2.0 6.0 3000.0 19F1  -13.85  -0.62 ./Pb2ZnF6-MD-3000/Pb2ZnF6-MD-3000.magres
+```
 
 J-couplings
 -----------
 
-For J-couplings (indirect spin-spin coupling)
+The `extract-jc.py` script, similarly to the other extract scripts, extracts J-couplings (indirect spin-spin coupling) from `.magres` output files from caclulations, either a set of them in a directory or a single one. The input options are
 
-    extract-jc.py --help
+    extract-jc.py [-h] [-J] [-S] [-N] source [atoms1] [atoms2]
+    
+<table class="table table-striped">
+<thead>
+<tr><th>Field</th> <th>Usage</th></tr>
+</thead>
+<tbody>
+<tr><td>-h</td> <td>Show help <small>(option)</small></td></tr>
+<tr><td>-J</td> <td>Show couplings in Hz, default is the reduced coupling <small>(option)</small></td></tr>
+<tr><td>-S</td> <td>Sort couplings by strength, default is atom order <small>(option)</small></td></tr>
+<tr><td>-N</td> <td>Parse numbers from path <small>(option)</small></td></tr>
+<tr><td>source</td> <td>Directory of .magres files, or single file</td></tr>
+<tr><td>atoms1</td> <td><a href="#atom_lists">Atom list</a> string specifying subset of atoms couplings <em>from</em> to print <small>(option)</small></td></tr>
+<tr><td>atoms2</td> <td><a href="#atom_lists">Atom list</a> string specifying subset of atoms couplings <em>to</em> to print <small>(option)</small></td></tr>
+</tbody>
+</table>
 
-For example,
+As with `extract-ms.py` and `extract-efg.py`, the `source` is the directory containing the `.magres` files, or a specific `.magres file`, the `-h` option will display the help information and `-N` will try to extract and output numerical parameters from the calculation paths.
 
-    extract-ms.py . Zn
+The `-S` option will sort the couplings by strength, which is useful for spotting the largest couplings in a complex crystal! The `-J` option will print the couplings in hertz (Hz) rather than reduced units (10<sup>19</sup>T<sup>2</sup>J<sup>-1</sup>), which is what is usually observed experimentally but depends on the exact isotope used.
+
+The `atoms1` and `atoms2` options allow you to provide <a href="#atom_lists">atom lists</a> specifying the starting and ending atoms in the coupling.
+
+For example, the following prints the couplings in hertz between the second selenium atom and all phosphorus atoms in the `.magres` files in the current directory
+
+```bash
+extract-jc.py -J . Se2 P
+```
+
+giving output like
+
+```
+# Showing in Hz (J)
+# Number  Atom1 Atom2 isc isc_fc  isc_spin  isc_orbital_p isc_orbital_d Dist  Path
+77Se2 31P2 -0.064 -0.136  0.015 0.083 -0.027 6.838 ./Se2/21_211.magres
+77Se2 31P3 -0.307 -0.517  0.118 0.119 -0.028 6.547 ./Se2/21_211.magres
+77Se2 31P1 -324.039 -324.372  37.267  -37.047 0.113 2.254 ./Se2/21_211.magres
+77Se2 31P4 348.006  347.126 -0.102  0.941 0.041 3.467 ./Se2/21_211.magres
+
+```
 
 Conversion script usage
 -----------------------

@@ -49,6 +49,12 @@ a {
     padding:0;
 
     li {
+      &.group {
+        padding:10px;
+        border: 1px solid #eee; 
+        margin-bottom: 5px;
+      }
+
       a {
         margin-bottom: 5px;
         padding: 10px;

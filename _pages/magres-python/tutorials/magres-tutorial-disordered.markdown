@@ -32,7 +32,7 @@ angles and strain parameters.
 Gehlenite is a disordered aluminosilicate consisting of two types of aluminium
 site and one type of silicon site. We want to look at aluminium EFGs to quantify
 the amount of disorder in the material, in particular the degree of violation of
-the “Loewenstein” rule (avoidance of Al-O-Al linkages) and its structural
+the "Loewenstein" rule (avoidance of Al-O-Al linkages) and its structural
 effects. This is based on analysis performed in [Florian
 2012](http://pubs.acs.org/doi/abs/10.1021/cm3016935).
 
@@ -58,8 +58,7 @@ First, let's load all the structures with random T2 occupation into
 `orig_structures`.
 
 You can download a `.zip` file with all the structures in [from
-here](http://tfgg.github.io/magres-
-format/workshop/tutorial_disordered/gehlenite_efgs.zip), extract this somewhere
+here](http://tfgg.me/files/tutorials/gehlenite_efgs.zip), extract this somewhere
 and modify the `PATH` variable to point to the folder where you extracted it.
 
 
@@ -88,21 +87,13 @@ show()
 ```
 
 
-![png](/home/green/Dropbox/personal_website/jekyll/images/tutorials/magres-tutorial-disordered_9_0.png)
+![png](/images/tutorials/magres-tutorial-disordered_9_0.png)
 
 
 Let's bin our $C_Q$s by what type of aluminium site they're sitting on. Below is
 an image of a layer of the gehlenite structure.
 
-
-```python
-from IPython.core.display import Image 
-Image(filename='gehlenite-sites.png', width=600, embed=True)
-```
-
-<div class='stream'>
-<pre>&lt;IPython.core.display.Image at 0x64aac10&gt;</pre>
-</div>
+<img src="/images/tutorials/magres-tutorial-disordered_11_0.png" width="100%"/>
 
 We have (b) T1 and (c) T2 aluminium sites. T1 sites have four Al/Si neighbours
 and T2 sites have three Al/Si neighbours. The number of silicon neighbours

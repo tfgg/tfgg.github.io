@@ -206,9 +206,11 @@ or the (snipped) output of the EFG on the first fluorine atom over an entire MD 
 J-couplings
 -----------
 
-The `extract-jc.py` script, similarly to the other extract scripts, extracts J-couplings (indirect spin-spin coupling) from `.magres` output files from caclulations, either a set of them in a directory or a single one. The input options are
+The `extract-jc.py` script, similarly to the other extract scripts, extracts J-couplings (indirect spin-spin coupling) from `.magres` output files of caclulations, either a set of them in a directory or a single one. The input options are
 
+```bash
     extract-jc.py [-h] [-J] [-S] [-N] source [atoms1] [atoms2]
+```
     
 <table class="table table-striped">
 <thead>
@@ -220,14 +222,14 @@ The `extract-jc.py` script, similarly to the other extract scripts, extracts J-c
 <tr><td>-S</td> <td>Sort couplings by strength, default is atom order <small>(option)</small></td></tr>
 <tr><td>-N</td> <td>Parse numbers from path <small>(option)</small></td></tr>
 <tr><td>source</td> <td>Directory of .magres files, or single file</td></tr>
-<tr><td>atoms1</td> <td><a href="#atom_lists">Atom list</a> string specifying subset of atoms couplings <em>from</em> to print <small>(option)</small></td></tr>
-<tr><td>atoms2</td> <td><a href="#atom_lists">Atom list</a> string specifying subset of atoms couplings <em>to</em> to print <small>(option)</small></td></tr>
+<tr><td>atoms1</td> <td><a href="#atom_lists">Atom list</a> string specifying subset of atoms to print couplings <em>from</em> <small>(option)</small></td></tr>
+<tr><td>atoms2</td> <td><a href="#atom_lists">Atom list</a> string specifying subset of atoms to print couplings <em>to</em> <small>(option)</small></td></tr>
 </tbody>
 </table>
 
 As with `extract-ms.py` and `extract-efg.py`, the `source` is the directory containing the `.magres` files, or a specific `.magres file`, the `-h` option will display the help information and `-N` will try to extract and output numerical parameters from the calculation paths.
 
-The `-S` option will sort the couplings by strength, which is useful for spotting the largest couplings in a complex crystal! The `-J` option will print the couplings in hertz (Hz) rather than reduced units (10<sup>19</sup>T<sup>2</sup>J<sup>-1</sup>), which is what is usually observed experimentally but depends on the exact isotope used.
+The `-S` option will sort the couplings by strength, which is useful for spotting the largest couplings in a complex crystal! The `-J` option will print the couplings in hertz (Hz), rather than reduced units (10<sup>19</sup>T<sup>2</sup>J<sup>-1</sup>), which is usually observed experimentally, but depends on the exact isotope used.
 
 The `atoms1` and `atoms2` options allow you to provide <a href="#atom_lists">atom lists</a> specifying the starting and ending atoms in the coupling.
 

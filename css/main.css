@@ -71,8 +71,8 @@ ul.publications {
   list-style: none;
   padding: 0; }
   ul.publications li {
-    margin-bottom: 5px;
-    font-size: 0.9em; }
+    margin-bottom: 20px;
+    font-size: 1.0em; }
 
 div.logotype {
   line-height: 40px; }

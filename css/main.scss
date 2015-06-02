@@ -1,25 +1,48 @@
 @import "default.scss";
 
+html {
+  font-size: 14px;
+}
+
 body {
-  margin-top:50px; 
+  margin-top:5rem;
   font-family: $header_font;
+  font-size: 1rem;
+}
+
+.index {
+  margin-bottom:10rem;
 }
 
 .container {
   min-height:768px;
 }
 
+ul.links {
+  padding:0;
+  margin: 0;
+  margin-bottom: 1rem;
+  list-style: none;
+
+  li {
+    display: inline;
+    float: left;
+
+    a {
+      display: block;
+      padding: 1rem;
+    }
+  }
+}
 
 ul.github {
   list-style:none;
   padding:0;
 
   li {
-    margin:10px;
-
     a.link {
-      margin-bottom: 5px;
-      padding: 10px;
+      margin-bottom: 1rem;
+      padding: 1rem;
       border: 1px solid #eee;
       display: block;
       background: $color_highlight;
@@ -27,8 +50,32 @@ ul.github {
   }
 }
 
-img.my_face {
-  border-radius:100px;
+.logoface {
+  text-align: center;
+
+  img.my_face {
+    border-radius:5rem;
+    width:10rem;
+  }
+}
+
+.logoface_small {
+  text-align: center;
+
+  font-size: 2rem;
+  font-weight: 300;
+
+  img.my_face {
+    border-radius:2rem;
+    width:4rem;
+    margin-right:1rem;
+  }
+}
+
+h1 {
+  font-size: 5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 p.block-highlight {
@@ -45,6 +92,10 @@ ul.publications {
   li {
     margin-bottom:20px;
     font-size:1.0em;
+
+    span.me {
+      text-decoration: underline;
+    }
   }
 }
 

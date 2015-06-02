@@ -2,7 +2,7 @@
   margin-top: 50px;
   background: #333;
   color: white;
-  font-family: "Droid Sans", sans-serif; }
+  font-family: "Helvetica", sans-serif; }
   .footer .footer-left {
     padding-top: 20px;
     padding-bottom: 100px;
@@ -25,13 +25,23 @@ a {
     text-decoration: underline; }
 
 h1, h2, h3, h4, h5 {
-  font-family: "Droid Sans", sans-serif; }
+  font-family: "Helvetica", sans-serif;
+  font-weight: 300;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em; }
 
-h1 {
-  font-weight: bold; }
+h1:first-child {
+  margin-top: 0em; }
+
+h2 {
+  font-size: 2.5rem; }
+
+h3 {
+  font-size: 1.5rem; }
 
 p, address {
-  font-family: "Droid Serif", serif; }
+  font-family: "Droid Serif", serif;
+  line-height: 2em; }
 
 article p {
   text-align: justify; }
@@ -39,27 +49,61 @@ article p {
 strong, bold {
   font-weight: 700; }
 
+html {
+  font-size: 14px; }
+
 body {
-  margin-top: 50px;
-  font-family: "Droid Sans", sans-serif; }
+  margin-top: 5rem;
+  font-family: "Helvetica", sans-serif;
+  font-size: 1rem; }
+
+.index {
+  margin-bottom: 10rem; }
 
 .container {
   min-height: 768px; }
 
+ul.links {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem;
+  list-style: none; }
+  ul.links li {
+    display: inline;
+    float: left; }
+    ul.links li a {
+      display: block;
+      padding: 1rem; }
+
 ul.github {
   list-style: none;
   padding: 0; }
-  ul.github li {
-    margin: 10px; }
-    ul.github li a.link {
-      margin-bottom: 5px;
-      padding: 10px;
-      border: 1px solid #eee;
-      display: block;
-      background: #DFEDFF; }
+  ul.github li a.link {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #eee;
+    display: block;
+    background: #DFEDFF; }
 
-img.my_face {
-  border-radius: 100px; }
+.logoface {
+  text-align: center; }
+  .logoface img.my_face {
+    border-radius: 5rem;
+    width: 10rem; }
+
+.logoface_small {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300; }
+  .logoface_small img.my_face {
+    border-radius: 2rem;
+    width: 4rem;
+    margin-right: 1rem; }
+
+h1 {
+  font-size: 5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem; }
 
 p.block-highlight {
   background: #EBEBEB;
@@ -73,6 +117,8 @@ ul.publications {
   ul.publications li {
     margin-bottom: 20px;
     font-size: 1.0em; }
+    ul.publications li span.me {
+      text-decoration: underline; }
 
 .col-right {
   text-align: center; }
@@ -88,7 +134,7 @@ div.logotype {
     font-size: 40px;
     padding: 0;
     margin: 0;
-    font-family: "Droid Sans", sans-serif;
+    font-family: "Helvetica", sans-serif;
     font-weight: bold; }
     div.logotype p a:link, div.logotype p a:visited {
       color: black;

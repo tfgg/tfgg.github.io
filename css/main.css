@@ -28,7 +28,8 @@ h1, h2, h3, h4, h5 {
   font-family: "Helvetica", sans-serif;
   font-weight: 300;
   margin-top: 1.5em;
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.5em;
+  text-rendering: geometricPrecision; }
 
 h1:first-child {
   margin-top: 0em; }

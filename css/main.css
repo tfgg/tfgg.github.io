@@ -165,7 +165,8 @@ img.thesis_front {
   box-shadow: 2px 2px 1px #dddddd; }
 
 div.post h1 {
-  border-bottom: 4px solid #FF0064; }
+  border-bottom: 4px solid #FF0064;
+  margin-bottom: 4rem; }
 div.post h1, div.post h2, div.post h3, div.post h4, div.post h5, div.post p, div.post ul, div.post table {
   width: 70%;
   margin-left: 5%; }

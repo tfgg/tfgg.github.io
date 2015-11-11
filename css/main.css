@@ -2,7 +2,7 @@
   margin-top: 50px;
   background: #333;
   color: white;
-  font-family: "Helvetica", sans-serif; }
+  font-family: "Roboto Slab", serif; }
   .footer .footer-left {
     padding-top: 20px;
     padding-bottom: 100px;
@@ -25,7 +25,7 @@ a {
     text-decoration: underline; }
 
 h1, h2, h3, h4, h5 {
-  font-family: "Helvetica", sans-serif;
+  font-family: "Roboto Slab", serif;
   font-weight: 300;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
@@ -34,15 +34,30 @@ h1, h2, h3, h4, h5 {
 h1:first-child {
   margin-top: 0em; }
 
+div.post h1 {
+  border-bottom: 4px solid #FF0064; }
+
 h2 {
   font-size: 2.5rem; }
 
 h3 {
   font-size: 1.5rem; }
 
-p, address {
-  font-family: "Droid Serif", serif;
-  line-height: 2em; }
+p, address, ul, td {
+  font-family: "Helvetica", sans-serif;
+  line-height: 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 2rem; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem; }
+  table td, table th {
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem; }
 
 article p {
   text-align: justify; }
@@ -55,7 +70,7 @@ html {
 
 body {
   margin-top: 5rem;
-  font-family: "Helvetica", sans-serif;
+  font-family: "Roboto Slab", serif;
   font-size: 1rem; }
 
 .index {
@@ -108,7 +123,6 @@ ul.github {
     width: 10rem; }
 
 .logoface_small {
-  text-align: center;
   font-size: 2rem;
   font-weight: 300; }
   .logoface_small img.my_face {
@@ -150,7 +164,7 @@ div.logotype {
     font-size: 40px;
     padding: 0;
     margin: 0;
-    font-family: "Helvetica", sans-serif;
+    font-family: "Roboto Slab", serif;
     font-weight: bold; }
     div.logotype p a:link, div.logotype p a:visited {
       color: black;

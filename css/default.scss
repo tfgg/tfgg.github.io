@@ -52,6 +52,10 @@ h1:first-child {
   margin-top: 0em;
 }
 
+div.post h1 {
+    border-bottom: 4px solid #FF0064;
+}
+
 h2 {
   font-size: 2.5rem;
 }
@@ -60,9 +64,24 @@ h3 {
   font-size: 1.5rem;
 }
 
-p, address {
+p, address, ul, td {
   font-family: $body_font;
-  line-height: 2em;
+  line-height: 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+
+    td, th {
+        border: 1px solid #ccc;
+        padding: 0.5rem 1rem;
+    }
 }
 
 article {

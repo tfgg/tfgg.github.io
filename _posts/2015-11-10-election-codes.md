@@ -87,6 +87,7 @@ Below is a draft table of proposed election type prefixes.
 | Referendum | ref | ref? | ? |
 | London Assembly | lon | am/lam | london.gov.uk |
 | Mayoral Election | ma | mayor | ? |
+| Police and Crime Commissioner | pcc | pcc | police.uk? |
 
 These are all up for argument. I haven't chosen a solid principle, more aesthetics. Some reflect the name of the assembly, some reflect the geographic region covered. For mayoral elections, `may` seems better than `ma`, but e.g. `may2020` might make people think of the general election in May 2020.
 

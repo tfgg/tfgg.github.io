@@ -15,7 +15,24 @@ It's hard building websites like [YourNextMP](https://www.yournextmp.com) (crowd
 - Police and Crime Commissioners
 - City Mayors
 
-If our tools and sites are handling all these different elections, we need a unified way to refer to these different elections over all the different datasets and sites that are produced during an election. We'd also like to produce a general site that can alert you to <em>any election happening</em>.
+If our tools and sites are handling all these different elections, we need a unified way to refer to these different elections over all the different datasets and sites that are produced during an election. For example, a person's positions might be represented as
+
+~~~javascript
+{
+    'candidacies': {
+        'ge2010': {
+            'party': 'Labour Party',
+            'constituency': 'Oxford East',
+        },
+        'ge2015': {
+            'party': 'Labour Party',
+            'constituency': 'Oxford West',
+        },
+    }
+}
+~~~
+
+Where the election key 'ge2010' lets you know everything you need to interpret the value.
 
 You might be thinking, shouldn't this be some sort of official ISO proposal or something with committees? Yeah, probably, but the civic tech community is going to be actually using it and this post is intended to be the start of that conversation. As far as I know there's no existing standard. I'd love to hear of other examples of efforts at UK or international election codes, especially some official document I've completely missed!
 

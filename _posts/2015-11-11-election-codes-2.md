@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Follow up: Standard codes for UK elections
+title: Follow up to standard codes for UK elections
 ---
 
 ## The proposal

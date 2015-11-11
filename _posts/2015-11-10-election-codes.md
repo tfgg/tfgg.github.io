@@ -15,7 +15,7 @@ It's hard building websites like [YourNextMP](https://www.yournextmp.com) (crowd
 - Police and Crime Commissioners
 - City Mayors
 
-If our tools and sites are handling all these different elections, we need a unified way to refer to these different elections over all the different datasets and sites that are produced during an election.
+If our tools and sites are handling all these different elections, we need a unified way to refer to these different elections over all the different datasets and sites that are produced during an election. We'd also like to produce a general site that can alert you to <em>any election happening</em>.
 
 ## The proposal
 
@@ -60,39 +60,39 @@ By-elections happen pretty regularly; there were five parliamentary by-elections
 
 You could model by-elections as general elections except over a subset of seats, but it'd be unpleasant to have the code of a general election depend on how many by-elections had happened so far in a year.
 
-I think it's reasonable to know how many by-elections have happened since the last general election, so I propose that by-elections are coded as `[general election code] + by + [by-election count]`. So, for example, the first by-election after the 2010 general election, which happened on the 13<sup>th</sup> of January 2011 in Oldham East and Saddleworth, would be `ge2010by1`. If multiple by-elections to the same assembly happen on the same day, they're coded as part of the same election.
+I think it's reasonable to know how many by-elections have happened since the last general election, so I propose that by-elections are coded as `[general election code] + -by + [by-election count]`, the hyphen to prevent clash with the multiple election notation explained below. So, for example, the first by-election after the 2010 general election, which happened on the 13<sup>th</sup> of January 2011 in Oldham East and Saddleworth, would be `ge2010-by1`. If multiple by-elections to the same assembly happen on the same day, they're coded as part of the same election.
 
-Another possibility is to code it as the year the by-election happened, so that first by-election of the 2010&ndash;2015 parliament would be `ge2011by1`. I think this is a bit confusing, since there's no corresponding `ge2011`. 
+Another possibility is to code it as the year the by-election happened, so that first by-election of the 2010&ndash;2015 parliament would be `ge2011-by1`. I think this is a bit confusing, since there's no corresponding `ge2011`. 
 
 ### Multiple elections in a year
 
 An election of a particular type can happen multiple times in a year. It doesn't happen often, but in 1974 there were two general elections, one on the 28<sup>th</sup> of February, resulting in a hung parliament, and one on the 10<sup>th</sup> of October, giving an overall majority to the Wilson government.
 
-Since we want election codes to be stable going forward, I propose that the first of those two elections would be `ge1974` and the second `ge1974b`, i.e. we add an incrementing letter for every additional election, starting from 'b'. Requiring the first election to be `ge1974a` would either require prescience or all general elections to be suffixed 'a', which is just plain ugly for such a rare case.
+Since we want election codes to be stable going forward, I propose that the first of those two elections would be `ge1974` and the second `ge1974b`, i.e. we add an incrementing letter for every additional election, starting from 'b'. Requiring the first election to be `ge1974a` would either require prescience or all general elections to be suffixed 'a', which is just plain ugly for such a rare case. The first by-election of the 1974-1979 parliament would be `ge1974b-by1`.
 
-The first by-election of the 1974-1979 parliament would be `ge1974b-by1`.
-The first by-election of the 1974-1979 parliament would be `ge1974b-1`.
-The first by-election of the 1974-1979 parliament would be `ge1974b_1`.
-The first by-election of the 1974-1979 parliament would be `ge1974b.1`.
-The first by-election of the 1974-1979 parliament would be `ge1974b~1`.
+Other option would be to suffix second elections with the month of the election, e.g. `ge1974oct`, as there can't (?) be more than one in a single month. This might be confusing if `ge1974feb` doesn't exist. All elections could notated with the month number included, e.g. `ge1974-02` and `ge1974-10`.
 
-## Proposed election types
+## Draft election types
 
-Below is the table of proposed election type prefixes.
+Below is a draft table of proposed election type prefixes.
 
-| Election type | Prefix |
-|---------------|--------|
-| United Kingdom Parliament | ge |
-| Scottish Parliament | sp |
-| National Assembly for Wales | wa |
-| Northern Ireland Assembly | ni |
-| European Parliament (UK) | eu |
-| Local elections | loc |
-| Referendum | ref |
-| London Assembly | lon |
-| Mayoral Election | ma |
+| Election type | Proposal | Position title | Domain |
+|---------------|--------|----|---|
+| United Kingdom Parliament | ge | mp | parliament.uk |
+| Scottish Parliament | sp | msp | scottish.parliament.uk |
+| National Assembly for Wales | wa | am/wam | assembly.wales |
+| Northern Ireland Assembly | ni | mla | niassembly.gov.uk |
+| European Parliament (UK) | eu | mep | europarl.europa.eu |
+| Local elections | loc | cllr | ? |
+| Referendum | ref | ref? | ? |
+| London Assembly | lon | am/lam | london.gov.uk |
+| Mayoral Election | ma | mayor | ? |
 
 These are all up for argument. I haven't chosen a solid principle, more aesthetics. Some reflect the name of the assembly, some reflect the geographic region covered. For mayoral elections, `may` seems better than `ma`, but e.g. `may2020` might make people think of the general election in May 2020.
+
+I've also put another column with an alternate idea using the title of the elected member for that assembly, with the slight problem that London and Welsh Assembly members are both called 'MA's. A search for [#mp2015](https://twitter.com/search?q=%23mp2015) also reveals limited relevant used compared to [#ge2015](https://twitter.com/search?q=%23ge2015).
+
+In addition I've also stuck in the domains for the different assemblies as another idea, though not all election types really have them.
 
 ### Local elections?
 
@@ -105,7 +105,7 @@ with optional parish, community and town councils below those. The elections usu
 
 ## Wrapping up
 
-So, that's the proposal. How stupid is it? Is there a much better way to handle by-elections, or multiple elections in a year? Should we just centrally assign random integers? Comment below or <a href="https://twitter.com/tfgg2">tweet at me</a>.
+So, that's the proposal. How stupid is it? Am I trying to conserve characters too hard? Is there a much better way to handle by-elections, or multiple elections in a year? Should we just centrally assign random integers? Comment below or <a href="https://twitter.com/tfgg2">tweet at me</a>.
 
 Do you want to be involved in this sort of thing? Check out <a href="https://democracyclub.org.uk/">Democracy Club</a> and drop us an email to join Slack.
 

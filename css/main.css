@@ -34,9 +34,6 @@ h1, h2, h3, h4, h5 {
 h1:first-child {
   margin-top: 0em; }
 
-div.post h1 {
-  border-bottom: 4px solid #FF0064; }
-
 h2 {
   font-size: 2.5rem; }
 
@@ -49,15 +46,6 @@ p, address, ul, td {
   font-size: 1.2rem;
   font-weight: 300;
   margin-bottom: 2rem; }
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1.5rem;
-  margin-bottom: 2rem; }
-  table td, table th {
-    border: 1px solid #ccc;
-    padding: 0.5rem 1rem; }
 
 article p {
   text-align: justify; }
@@ -175,3 +163,19 @@ div.logotype {
 img.thesis_front {
   border: 1px solid #eee;
   box-shadow: 2px 2px 1px #dddddd; }
+
+div.post h1 {
+  border-bottom: 4px solid #FF0064; }
+div.post h1, div.post h2, div.post h3, div.post h4, div.post h5, div.post p, div.post ul, div.post table {
+  width: 70%;
+  margin-left: 5%; }
+div.post table {
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem; }
+  div.post table.wide {
+    width: 90%;
+    margin-left: 0; }
+  div.post table td, div.post table th {
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem; }

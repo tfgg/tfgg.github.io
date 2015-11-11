@@ -154,3 +154,29 @@ img.thesis_front {
   box-shadow: 2px 2px 1px #dddddd;
 }
 
+div.post {
+    h1 {
+        border-bottom: 4px solid #FF0064;
+    }
+
+    h1, h2, h3, h4, h5, p, ul, table {
+        width: 70%;
+        margin-left: 5%;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+
+        &.wide {
+            width: 90%;
+            margin-left: 0;
+        }
+
+        td, th {
+            border: 1px solid #ccc;
+            padding: 0.5rem 1rem;
+        }
+    }
+}

@@ -160,8 +160,12 @@ div.post {
         margin-bottom: 4rem;
     }
 
-    @media (min-width: 1000px) {
-        h1, h2, h3, h4, h5, p, ul, table, div.highlight {
+    h1, h2, h3, h4, h5, p, ul, table, div.highlight, iframe {
+        width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+        h1, h2, h3, h4, h5, p, ul, table, div.highlight, iframe {
             width: 70%;
             margin-left: 5%;
         }

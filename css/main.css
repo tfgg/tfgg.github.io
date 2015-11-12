@@ -169,8 +169,10 @@ img.thesis_front {
 div.post h1 {
   border-bottom: 4px solid #FF0064;
   margin-bottom: 4rem; }
-@media (min-width: 1000px) {
-  div.post h1, div.post h2, div.post h3, div.post h4, div.post h5, div.post p, div.post ul, div.post table, div.post div.highlight {
+div.post h1, div.post h2, div.post h3, div.post h4, div.post h5, div.post p, div.post ul, div.post table, div.post div.highlight, div.post iframe {
+  width: 100%; }
+@media (min-width: 1024px) {
+  div.post h1, div.post h2, div.post h3, div.post h4, div.post h5, div.post p, div.post ul, div.post table, div.post div.highlight, div.post iframe {
     width: 70%;
     margin-left: 5%; } }
 div.post table {

@@ -3,6 +3,8 @@ layout: post
 title: Follow up to standard codes for UK elections
 ---
 
+This is a semi-unpublished draft that I'll update as feedback/thoughts come from the [previous post](/2015/11/10/election-codes.html).
+
 ## The proposal
 
 Internally, [YourNextMP](https://www.yournextmp.com/) used year strings, '2010' and '2015' to distinguish the data fields about each election, but this isn't particularly helpful if there are many different types of election in a year!

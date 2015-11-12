@@ -3,6 +3,8 @@
   background: #333;
   color: white;
   font-family: "Roboto Slab", serif; }
+  .footer p {
+    margin-bottom: 0.5rem; }
   .footer .footer-left {
     padding-top: 20px;
     padding-bottom: 100px;

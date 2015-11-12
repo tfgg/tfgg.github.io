@@ -85,9 +85,9 @@ Below is a draft table of proposed election type prefixes.
 | Mayoral Election | mayor | mayor | ? |
 | Police and Crime Commissioner | pcc | pcc | police.uk? |
 
-These are all up for argument. I haven't chosen a solid principle, more aesthetics. Some reflect the name of the assembly, some reflect the geographic region covered. For mayoral elections, `may` seems better than `ma`, but e.g. `may2020` might make people think of the general election in May 2020.
+These are all up for argument. I haven't chosen a solid principle, more aesthetics. Some reflect the name of the assembly, some reflect the geographic region covered. For mayoral elections, `mayor` is long, but seems better than `ma` or `may` in scannability.
 
-I've also put in two extra column with an alternate ideas. The first uses the title of the elected member for that assembly, with the slight problem that London and Welsh Assembly members are both called 'MA's. A search for [#mp2015](https://twitter.com/search?q=%23mp2015) also reveals limited relevant use compared to [#ge2015](https://twitter.com/search?q=%23ge2015). The second uses the domains for the different assemblies, though not all election types really have them.
+I've also put in two extra column with an alternate ideas. The first uses the title of the elected member for that assembly, with the slight problem that London and Welsh Assembly members are both called 'AM's. A search for [#mp2015](https://twitter.com/search?q=%23mp2015) also reveals limited relevant use compared to [#ge2015](https://twitter.com/search?q=%23ge2015). The second uses the domains for the different assemblies, though not all election types really have them.
 
 ### Local elections?
 

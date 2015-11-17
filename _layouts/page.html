@@ -3,20 +3,16 @@ layout: default
 css: main.css
 ---
 
-<div class="container">
+<div class="container page">
   <div class="row">
-    <div class="col-md-3 sidebar">
+    <div class="col-md-2">
       <div class='logoface_small'>
-      <img src='/images/my_face.jpg' class='my_face'/> Tim Green
+        <a href='/'>Tim Green</a>
       </div>
-
-      </ul>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-10">
+      <h1>{{ page.title }}</h1>
       {{ content }}
-    </div>
-    <div class="col-md-3">
-      {{ right_content }}
     </div>
   </div>
 </div>
@@ -28,13 +24,7 @@ css: main.css
       <p><a href='http://github.com/tfgg' target='_blank'>Github tfgg</a></p>
     </div>
     <div class='col-md-6 footer-right'>
-      <address>
-      Department of Materials<br/>
-      University of Oxford<br/>
-      Parks Road<br/>
-      Oxford OX1 3PH<br/>
-      UK
-      </address>
+
     </div>
   </div>
 </div>

@@ -31,6 +31,10 @@ If our tools and sites are handling all these different elections, we need a uni
     },
 }
 ~~~
+<div class="caption">
+    A hypothetical person's candidacies in 2010 and 2015<br/>
+    <small style="font-style:italic;">(in reality there would be unique IDs for the party and constituency fields)</small>
+</div>
 
 Where the pair of election code ('ge2010') and the candidate-specific data (party, constituency) gives the full information about the candidacy. Similarly, election codes might be used in URIs, e.g. `http://www.yourcandidates.com/ge2015/oxford-east/` for all the candidates who ran in 2015 in Oxford East. 
 

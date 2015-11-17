@@ -1,30 +1,17 @@
 @import "colours.scss";
 
-.footer {
-  margin-top:50px;
-  background:#333;
-  color:white;
+html {
+  font-size: 14px;
+}
+
+body {
+  margin-top:5rem;
   font-family: $header_font;
+  font-size: 1rem;
+}
 
-  p {
-    margin-bottom: 0.5rem;
-  }
-
-  .footer-left {
-    padding-top:20px;
-    padding-bottom:100px;
-    text-align:right;
-  }
-
-  .footer-right {
-    padding-top:20px;
-    padding-bottom:100px;
-    text-align:left;
-  }
-
-  a:link, a:visited {
-    color:white;
-  }
+.container {
+  min-height:768px;
 }
 
 a {
@@ -50,6 +37,12 @@ h1, h2, h3, h4, h5 {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   text-rendering: geometricPrecision;
+}
+    
+h1 {
+  font-size: 5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 h1:first-child {
@@ -80,4 +73,15 @@ article {
 
 strong, bold {
   font-weight: 700;
+}
+
+div.logoface_small {
+    font-size: 2rem;
+    font-weight: 300;
+
+    img.my_face {
+        border-radius:2rem;
+        width:4rem;
+        margin-right:1rem;
+    }
 }

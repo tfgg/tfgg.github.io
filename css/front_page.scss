@@ -1,0 +1,117 @@
+div.front_page {
+    margin-bottom:10rem;
+
+    ul#leftnav {
+        margin: 0;
+        margin-top: 2em;
+        padding: 0;
+        list-style: none;
+
+        li {
+            a:link {
+                display: block;
+                padding: 1em;
+                background: #E0F0FA;
+                border-radius: 5px;
+                color: #517DA3;
+                text-decoration: none;
+                text-align: center;
+                margin-bottom: 1em;
+            }
+        }
+    }
+
+    ul.links {
+      padding:0;
+      margin: 0;
+      margin-bottom: 1rem;
+      list-style: none;
+
+      li {
+        display: inline;
+        float: left;
+
+        a {
+          display: block;
+          padding: 1rem;
+        }
+      }
+    }
+
+    ul.github {
+      list-style:none;
+      padding:0;
+
+      li {
+        a.link {
+          margin-bottom: 1rem;
+          padding: 1rem;
+          border: 1px solid #eee;
+          display: block;
+          background: $color_highlight;
+        }
+      }
+    }
+
+    .logoface {
+      text-align: center;
+
+      img.my_face {
+        border-radius:5rem;
+        width:10rem;
+      }
+    }
+
+    p.block-highlight {
+      background: $grey_highlight;
+      color: #003;
+      padding:10px;
+      border-radius:5px;
+    }
+
+    ul.publications {
+      list-style:none;
+      padding:0;
+
+      li {
+        margin-bottom:20px;
+        font-size:1.0em;
+
+        span.me {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .col-right {
+      text-align: center;
+
+      address {
+        text-align: right;
+        border: 1px solid #eee;
+        display: inline-block;
+        padding: 10px
+      }
+    }
+
+    div.logotype {
+      line-height:40px;
+
+      p {  
+        font-size:40px;
+        padding:0;
+        margin:0;
+        font-family: $header_font;
+        font-weight:bold;
+      
+        a:link, a:visited {
+          color:black;
+          text-decoration:none;
+        }
+      }
+
+      img {
+        height:40px;
+      }
+    }
+}

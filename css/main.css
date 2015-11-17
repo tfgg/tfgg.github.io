@@ -1,20 +1,13 @@
-.footer {
-  margin-top: 50px;
-  background: #333;
-  color: white;
-  font-family: "Roboto Slab", serif; }
-  .footer p {
-    margin-bottom: 0.5rem; }
-  .footer .footer-left {
-    padding-top: 20px;
-    padding-bottom: 100px;
-    text-align: right; }
-  .footer .footer-right {
-    padding-top: 20px;
-    padding-bottom: 100px;
-    text-align: left; }
-  .footer a:link, .footer a:visited {
-    color: white; }
+html {
+  font-size: 14px; }
+
+body {
+  margin-top: 5rem;
+  font-family: "Roboto Slab", serif;
+  font-size: 1rem; }
+
+.container {
+  min-height: 768px; }
 
 a {
   color: #428bca; }
@@ -32,6 +25,11 @@ h1, h2, h3, h4, h5 {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   text-rendering: geometricPrecision; }
+
+h1 {
+  font-size: 5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem; }
 
 h1:first-child {
   margin-top: 0em; }
@@ -55,126 +53,32 @@ article p {
 strong, bold {
   font-weight: 700; }
 
-html {
-  font-size: 14px; }
-
-body {
-  margin-top: 5rem;
-  font-family: "Roboto Slab", serif;
-  font-size: 1rem; }
-
-.index {
-  margin-bottom: 10rem; }
-
-.container {
-  min-height: 768px; }
-
-ul#leftnav {
-  margin: 0;
-  margin-top: 2em;
-  padding: 0;
-  list-style: none; }
-  ul#leftnav li a:link {
-    display: block;
-    padding: 1em;
-    background: #E0F0FA;
-    border-radius: 5px;
-    color: #517DA3;
-    text-decoration: none;
-    text-align: center;
-    margin-bottom: 1em; }
-
-ul.links {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 1rem;
-  list-style: none; }
-  ul.links li {
-    display: inline;
-    float: left; }
-    ul.links li a {
-      display: block;
-      padding: 1rem; }
-
-ul.github {
-  list-style: none;
-  padding: 0; }
-  ul.github li a.link {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border: 1px solid #eee;
-    display: block;
-    background: #DFEDFF; }
-
-.logoface {
-  text-align: center; }
-  .logoface img.my_face {
-    border-radius: 5rem;
-    width: 10rem; }
-
-.logoface_small {
+div.logoface_small {
   font-size: 2rem;
   font-weight: 300; }
-  .logoface_small img.my_face {
+  div.logoface_small img.my_face {
     border-radius: 2rem;
     width: 4rem;
     margin-right: 1rem; }
 
-h1 {
-  font-size: 5rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem; }
-
-p.block-highlight {
-  background: #EBEBEB;
-  color: #003;
-  padding: 10px;
-  border-radius: 5px; }
-
-ul.publications {
-  list-style: none;
-  padding: 0; }
-  ul.publications li {
-    margin-bottom: 20px;
-    font-size: 1.0em; }
-    ul.publications li span.me {
-      text-decoration: underline; }
-
-.col-right {
-  text-align: center; }
-  .col-right address {
-    text-align: right;
-    border: 1px solid #eee;
-    display: inline-block;
-    padding: 10px; }
-
-div.logotype {
-  line-height: 40px; }
-  div.logotype p {
-    font-size: 40px;
-    padding: 0;
-    margin: 0;
-    font-family: "Roboto Slab", serif;
-    font-weight: bold; }
-    div.logotype p a:link, div.logotype p a:visited {
-      color: black;
-      text-decoration: none; }
-  div.logotype img {
-    height: 40px; }
-
-img.thesis_front {
-  border: 1px solid #eee;
-  box-shadow: 2px 2px 1px #dddddd; }
-
 div.post h1 {
   border-bottom: 4px solid #FF0064;
   margin-bottom: 4rem; }
-div.post h1, div.post h2, div.post h3, div.post h4, div.post h5, div.post p, div.post ul, div.post table, div.post div.highlight, div.post iframe {
+div.post h1, div.post h2, div.post h3, div.post h4, div.post h5, div.post p, div.post ul, div.post table, div.post div.highlight, div.post iframe, div.post div.caption, div.post p.quote {
   width: 100%; }
 @media (min-width: 1024px) {
-  div.post h1, div.post h2, div.post h3, div.post h4, div.post h5, div.post p, div.post ul, div.post table, div.post div.highlight, div.post iframe {
+  div.post h1, div.post h2, div.post h3, div.post h4, div.post h5, div.post p, div.post ul, div.post table, div.post div.highlight, div.post iframe, div.post div.caption, div.post p.quote {
     width: 70%;
     margin-left: 5%; } }
+div.post img {
+  width: 100%;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.1); }
+div.post p.quote {
+  font-size: 1.4rem;
+  text-align: center; }
+div.post div.caption {
+  text-align: center;
+  margin-bottom: 2rem; }
 div.post table {
   border-collapse: collapse;
   margin-top: 1.5rem;
@@ -185,3 +89,100 @@ div.post table {
   div.post table td, div.post table th {
     border: 1px solid #ccc;
     padding: 0.5rem 1rem; }
+
+.page img.thesis_front {
+  border: 1px solid #eee;
+  box-shadow: 2px 2px 1px #dddddd; }
+
+.footer {
+  margin-top: 50px;
+  background: #333;
+  color: white;
+  font-family: "Roboto Slab", serif; }
+  .footer p {
+    margin-bottom: 0.5rem; }
+  .footer .footer-left {
+    padding-top: 20px;
+    padding-bottom: 100px;
+    text-align: right; }
+  .footer .footer-right {
+    padding-top: 20px;
+    padding-bottom: 100px;
+    text-align: left; }
+  .footer a:link, .footer a:visited {
+    color: white; }
+
+div.front_page {
+  margin-bottom: 10rem; }
+  div.front_page ul#leftnav {
+    margin: 0;
+    margin-top: 2em;
+    padding: 0;
+    list-style: none; }
+    div.front_page ul#leftnav li a:link {
+      display: block;
+      padding: 1em;
+      background: #E0F0FA;
+      border-radius: 5px;
+      color: #517DA3;
+      text-decoration: none;
+      text-align: center;
+      margin-bottom: 1em; }
+  div.front_page ul.links {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+    list-style: none; }
+    div.front_page ul.links li {
+      display: inline;
+      float: left; }
+      div.front_page ul.links li a {
+        display: block;
+        padding: 1rem; }
+  div.front_page ul.github {
+    list-style: none;
+    padding: 0; }
+    div.front_page ul.github li a.link {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border: 1px solid #eee;
+      display: block;
+      background: #DFEDFF; }
+  div.front_page .logoface {
+    text-align: center; }
+    div.front_page .logoface img.my_face {
+      border-radius: 5rem;
+      width: 10rem; }
+  div.front_page p.block-highlight {
+    background: #EBEBEB;
+    color: #003;
+    padding: 10px;
+    border-radius: 5px; }
+  div.front_page ul.publications {
+    list-style: none;
+    padding: 0; }
+    div.front_page ul.publications li {
+      margin-bottom: 20px;
+      font-size: 1.0em; }
+      div.front_page ul.publications li span.me {
+        text-decoration: underline; }
+  div.front_page .col-right {
+    text-align: center; }
+    div.front_page .col-right address {
+      text-align: right;
+      border: 1px solid #eee;
+      display: inline-block;
+      padding: 10px; }
+  div.front_page div.logotype {
+    line-height: 40px; }
+    div.front_page div.logotype p {
+      font-size: 40px;
+      padding: 0;
+      margin: 0;
+      font-family: "Roboto Slab", serif;
+      font-weight: bold; }
+      div.front_page div.logotype p a:link, div.front_page div.logotype p a:visited {
+        color: black;
+        text-decoration: none; }
+    div.front_page div.logotype img {
+      height: 40px; }

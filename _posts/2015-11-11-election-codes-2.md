@@ -5,6 +5,59 @@ title: Follow up to standard codes for UK elections
 
 This is a semi-unpublished draft that I'll update as feedback/thoughts come from the [previous post](/2015/11/10/election-codes.html).
 
+## More motivation
+
+Basically, I want a function that will take an election object and map it onto a unique code (or slug, or id)
+
+~~~python
+code = f(election)
+~~~
+
+From here, there are two options
+
+- everyone to be able to have the same function `f(election)` and, given reasonable knowledge about the election, construct the same code as everyone else
+- `f(election)` is determined by a central authority who everyone has to copy
+
+Ideally, I want option one. It's more elegant and avoids the need for a promptly maintained central source. Even if a good central authority exists, such identifiers could simply degenerate into being good election slugs in URLs. I also like the idea that you can work out the identifier for a hypothetical future election. It also seems silly that we can't agree that the name of the 2015 General Election is `ge2015` (or similar).
+
+In favour of giving up and going with option two, arguably it's not possible or sensible to have a shared function `f(election)`. Good reasons are, e.g. if we were to include constituency names, there could be disagreements over their spelling (is it East Oxford or Oxford East?), there's potential for mistakes or change and uncertainty &mdash; we know there's a hypothetical EU referendum in 2016&ndash;17, but we don't know exacty _when_. Given this, the only option is for a central authority to set identifiers for the elections, this might be a random integer, or a URI with GUID, such as
+
+`http://www.bbc.co.uk/things/1e03d3fc-d4f4-4135-974a-5524cfd220bf`
+
+In engineering terms, such proposals are isomorphic to "pick a large, random, natural number and make sure everyone else knows it".
+
+
+## Concepts
+
+Many people opined that it should be international. I shyed away from discussing this in my original post, on the grounds that it introduced significantly more potential for strange edge cases and complexity in what I want to be a simple, crisp, proposal. I think that this is adequately solved by sticking the 'GB' country-level ISO code on the front, encompassing England, Wales, Scotland and Northern Ireland, to qualify an identifier as being UK-related.
+
+In feedback, Matthew Somerville drove a deeper wedge between the concept of an 'event' and an 'election', which is useful to talk about. Basically, are we looking at events, in which there might be multiple elections in a day, or single elections? Conceptually I had separated different types of election event, e.g. police and local, but lumped together similar elections as a single event, e.g. all local elections happening on the same day.
+
+I think, to be clearer, what we really want is elections. We can start with a concept of a candidacy in the 2015 general election to be the following tuple 
+
+<table class="wide">
+<tr>
+    <th>Date</th><th>Country</th><th>Assembly</th><th>Constituency</th><th>Party</th><th>Name</th>
+</tr>
+<tr>
+    <td>2015-05-07</td><td>GB</td><td>UK Parliament</td><td>Oxford East</td><td>Labour</td><td>Andrew Smith</td>
+</tr>
+</table>
+
+If the final three fields are [what YourNextMP crowd sourced](https://yournextmp.com/person/2208/andrew-smith), the first three fields are what we need to uniquely map into an election code. Similarly, a local election candidacy might be
+
+<table class="wide">
+<tr>
+    <th>Date</th><th>Country</th><th>Assembly</th><th>Ward</th><th>Party</th><th>Name</th>
+</tr>
+<tr>
+    <td>2014-05-22</td><td>GB</td><td>Oxford City Council</td><td>Jericho and Osney</td><td>Labour</td><td>Susanna Pressel</td>
+</tr>
+</table>
+
+of which, again, the first three fields tell us the election, and final three tell us the rest of the candidacy. 
+
+
 ## The proposal
 
 Internally, [YourNextMP](https://www.yournextmp.com/) used year strings, '2010' and '2015' to distinguish the data fields about each election, but this isn't particularly helpful if there are many different types of election in a year!

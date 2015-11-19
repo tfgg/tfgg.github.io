@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tim Green</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link href='/fonts/droid_serif.css' rel='stylesheet' type='text/css'>
+    <link href='/fonts/droid_sans.css' rel='stylesheet' type='text/css'>
+    <link href='/fonts/roboto_slab.css' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="/css/magres.css" />
+    <link rel="stylesheet" href="/css/syntax.css" />
+
+    <link rel="shortcut icon" type="image/png" href="/images/my_face.jpg"/>
+
+    <script type='text/javascript' src='/js/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='/js/d3.v3.min.js'></script>
+    <script type='text/javascript' src='/js/charts.js'/></script>
+  </head>
+  <body>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-593R7L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-593R7L');</script>
+<!-- End Google Tag Manager -->
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<div class="top-bar"><div class="inner">
+  <a href='/'>Tim Green</a> / MagresPython
+</div></div>
+
+<div class="magres_heder"><div class="container">
+<div class="col-md-6 col-md-offset-3 inner">
+<!--<a href='/magres-python/install/' class='btn btn-default'>install</a>-->
+<h1>The MagresPython library</h1>
+</div>
+</div></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 sidebar">
+        <!--<h3>Documentation</h3>-->
+        <ul>
+          <li><a class='link' href='/magres-python/'>Introduction</a></li>
+          <li><a class='link' href='/magres-python/install/'>Installation</a></li> 
+          <li><a class='link' href='/magres-python/scripts/'>Scripts</a></li>
+          <li class='group'>Tutorials
+            <ul>
+              <!--<li><a class='link' href='/magres-python/tutorials/introduction/'>Introduction</a></li>-->
+              <!--<li><a class='link' href='/magres-python/tutorials/atoms/'>Atoms</a></li>-->
+              <li><a class='link' href='/magres-python/tutorials/structural/'>Distances and angles</a></li>
+              <!--<li><a class='link' href='/magres-python/tutorials/bonding/'>Bonding</a></li>
+              <li><a class='link' href='/magres-python/tutorials/cs/'>Chemical shifts</a></li>
+              <li><a class='link' href='/magres-python/tutorials/efg/'>Electric field gradients</a></li>
+              <li><a class='link' href='/magres-python/tutorials/jc/'>J-coupling</a></li>-->
+              <li><a class='link' href='/magres-python/tutorials/disordered/'>Disordered systems</a></li>
+            </ul>
+          </li>
+          <li><a class='external' href='https://github.com/tfgg/magres-format'>Available on Github</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 content">
+      <p><strong>MagresPython</strong> is a <a href="http://www.python.org/">Python</a> library for parsing the <a href="http://www.ccpnc.ac.uk/pmwiki.php/CCPNC/Fileformat">CCP-NC ab-initio magnetic resonance file format</a>. This is used in the latest version of the <a href="http://www.castep.org/">CASTEP</a> and <a href="http://www.quantum-espresso.org/">Quantum ESPRESSO</a> (PWSCF) codes.</p>
+
+<p>The library is designed to allow you to write expressive code for processing the output of magnetic resonance calculations. It is designed from the ground-up to be &#39;Pythonic&#39;, that is, it is idiomatic Python and interacts well with standard conventions.</p>
+
+<p>Loading the output of a calculation on an ethanol molecule and printing all the isotropic magnetic shieldings of the hydrogen atoms is as easy as</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">atoms</span> <span class="o">=</span> <span class="n">MagresAtoms</span><span class="o">.</span><span class="n">load_magres</span><span class="p">(</span><span class="s">&#39;ethanol.magres&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">atoms</span><span class="o">.</span><span class="n">species</span><span class="p">(</span><span class="s">&#39;H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ms</span><span class="o">.</span><span class="n">iso</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">[30.0, 30.0, 30.0, 27.0, 27.0, 32.0]
+</code></pre></div>
+<p>The library also comes with <a href="/magres-python/scripts">a number of command line helper scripts</a> for use in the course of research, such as <code>extract-ms.py</code>.</p>
+
+<p>It has been tested mostly on Linux (the Ubuntu distribution) and OS X.</p>
+
+<p>If you have any questions about how you can use this library in your research, please contact me using the information in the footer.</p>
+
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row footer">
+    <div class='col-md-6 footer-left'>
+      <p><a href='mailto:timothy.green@gmail.com'>timothy.green@gmail.com</a></p>
+      <p><a href='http://twitter.com/tfgg2' target="_blank">Twitter @tfgg2</a></p>
+      <p><a href='http://github.com/tfgg' target='_blank'>Github tfgg</a></p>
+    </div>
+    <div class='col-md-6 footer-right'>
+      <address>
+      Department of Materials<br/>
+      University of Oxford<br/>
+      Parks Road<br/>
+      Oxford OX1 3PH<br/>
+      UK
+      </address>
+    </div>
+  </div>
+</div>
+
+
+  </body>
+</html>
+

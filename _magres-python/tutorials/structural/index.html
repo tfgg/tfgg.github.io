@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tim Green</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link href='/fonts/droid_serif.css' rel='stylesheet' type='text/css'>
+    <link href='/fonts/droid_sans.css' rel='stylesheet' type='text/css'>
+    <link href='/fonts/roboto_slab.css' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="/css/magres.css" />
+    <link rel="stylesheet" href="/css/syntax.css" />
+
+    <link rel="shortcut icon" type="image/png" href="/images/my_face.jpg"/>
+
+    <script type='text/javascript' src='/js/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='/js/d3.v3.min.js'></script>
+    <script type='text/javascript' src='/js/charts.js'/></script>
+  </head>
+  <body>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-593R7L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-593R7L');</script>
+<!-- End Google Tag Manager -->
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<div class="top-bar"><div class="inner">
+  <a href='/'>Tim Green</a> / MagresPython
+</div></div>
+
+<div class="magres_heder"><div class="container">
+<div class="col-md-6 col-md-offset-3 inner">
+<!--<a href='/magres-python/install/' class='btn btn-default'>install</a>-->
+<h1>The MagresPython library</h1>
+</div>
+</div></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 sidebar">
+        <!--<h3>Documentation</h3>-->
+        <ul>
+          <li><a class='link' href='/magres-python/'>Introduction</a></li>
+          <li><a class='link' href='/magres-python/install/'>Installation</a></li> 
+          <li><a class='link' href='/magres-python/scripts/'>Scripts</a></li>
+          <li class='group'>Tutorials
+            <ul>
+              <!--<li><a class='link' href='/magres-python/tutorials/introduction/'>Introduction</a></li>-->
+              <!--<li><a class='link' href='/magres-python/tutorials/atoms/'>Atoms</a></li>-->
+              <li><a class='link' href='/magres-python/tutorials/structural/'>Distances and angles</a></li>
+              <!--<li><a class='link' href='/magres-python/tutorials/bonding/'>Bonding</a></li>
+              <li><a class='link' href='/magres-python/tutorials/cs/'>Chemical shifts</a></li>
+              <li><a class='link' href='/magres-python/tutorials/efg/'>Electric field gradients</a></li>
+              <li><a class='link' href='/magres-python/tutorials/jc/'>J-coupling</a></li>-->
+              <li><a class='link' href='/magres-python/tutorials/disordered/'>Disordered systems</a></li>
+            </ul>
+          </li>
+          <li><a class='external' href='https://github.com/tfgg/magres-format'>Available on Github</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 content">
+      <h1 id="calculating-structural-properties">Calculating structural properties</h1>
+
+<p>Quite often you want to calculate some geometric, structural properties of a
+structure or set of structures, for example the mean bond angles between certain
+species, or the polyhedral strain. This tutorial goes through various ways to
+easily extract such quantities from <code>.magres</code> files.</p>
+
+<p>As usual, we start by importing the <code>MagresAtoms</code> Python class and reading in a
+<code>.magres</code> file to the <code>atoms</code> variable.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">magres.atoms</span> <span class="kn">import</span> <span class="n">MagresAtoms</span>
+</code></pre></div><div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">atoms</span> <span class="o">=</span> <span class="n">MagresAtoms</span><span class="o">.</span><span class="n">load_magres</span><span class="p">(</span><span class="s">&#39;../samples/T1Si0.magres&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="bond-lengths">Bond lengths</h2>
+
+<p>We can calculate the distance between two atoms, for example between the Al1
+atom and its neighbour, the O1 atom.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">atoms</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">Al1</span><span class="p">,</span> <span class="n">atoms</span><span class="o">.</span><span class="n">O1</span><span class="p">)</span>
+</code></pre></div>
+<div class='stream'>
+<pre>1.7623362335263948</pre>
+</div>
+
+<p>We might then calculate the distance between Al1 and the Si1 atom bonded to the
+bridging O1 atom.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">atoms</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">Al1</span><span class="p">,</span> <span class="n">atoms</span><span class="o">.</span><span class="n">Si1</span><span class="p">)</span>
+</code></pre></div>
+<div class='stream'>
+<pre>2.9562849997928144</pre>
+</div>
+
+<p>Let&#39;s loop over the first two aluminium atoms (for sake of space) and print out
+the Al-O bond length.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">atom_Al</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">species</span><span class="p">(</span><span class="s">&#39;Al&#39;</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">atom_O</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">species</span><span class="p">(</span><span class="s">&#39;O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">(</span><span class="n">atom_Al</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">):</span>
+        <span class="k">print</span> <span class="n">atom_Al</span><span class="p">,</span> <span class="n">atom_O</span><span class="p">,</span> <span class="n">atoms</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">atom_Al</span><span class="p">,</span> <span class="n">atom_O</span><span class="p">)</span>
+</code></pre></div>
+<div class='stream'>
+<pre>27Al1 17O1 1.76233623353
+27Al1 17O18 1.75419940144
+27Al1 17O31 1.76324628229
+27Al1 17O44 1.75655859851
+27Al2 17O5 1.75237010931
+27Al2 17O6 1.72876661236
+27Al2 17O7 1.77878020002
+27Al2 17O8 1.76119987509
+</pre>
+</div>
+
+<p>We could take a mean to find out the average Al-O bond length, with a standard
+deviation.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">dists</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">atom_Al</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">species</span><span class="p">(</span><span class="s">&#39;Al&#39;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">atom_O</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">species</span><span class="p">(</span><span class="s">&#39;O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">(</span><span class="n">atom_Al</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">):</span>
+        <span class="n">dists</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">atom_Al</span><span class="p">,</span> <span class="n">atom_O</span><span class="p">))</span>
+
+<span class="k">print</span> <span class="s">&quot;Mean bond length =&quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">(</span><span class="n">dists</span><span class="p">),</span> <span class="s">&quot;+-&quot;</span><span class="p">,</span> <span class="n">std</span><span class="p">(</span><span class="n">dists</span><span class="p">)</span>
+</code></pre></div>
+<div class='stream'>
+<pre>Mean bond length = 1.75230470421 +- 0.0209888992786
+</pre>
+</div>
+
+<p>And we could even plot a histogram of the Al-O bond length distribution.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">hist</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<div class='stream'>
+<pre>(array([  4.,   2.,   4.,  10.,  12.,  12.,  20.,  16.,  11.,  15.,  12.,
+         23.,  12.,  14.,  11.,   3.,   3.,   2.,   3.,   3.]),
+ array([ 1.70591764,  1.71088507,  1.7158525 ,  1.72081992,  1.72578735,
+         1.73075478,  1.7357222 ,  1.74068963,  1.74565706,  1.75062449,
+         1.75559191,  1.76055934,  1.76552677,  1.7704942 ,  1.77546162,
+         1.78042905,  1.78539648,  1.7903639 ,  1.79533133,  1.80029876,
+         1.80526619]),
+ &lt;a list of 20 Patch objects&gt;)</pre>
+</div>
+
+<p><img src="/images/tutorials/magres-tutorial-structural_13_1.png" alt="png"></p>
+
+<h2 id="bond-angles">Bond angles</h2>
+
+<p>We can use the angle function to calculate the X-Y-Z bond angle of three atoms,
+X, Y and Z. For example, the Al1-O1-S1 bond angle is</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">atoms</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">Al1</span><span class="p">,</span> <span class="n">atoms</span><span class="o">.</span><span class="n">O1</span><span class="p">,</span> <span class="n">atoms</span><span class="o">.</span><span class="n">Si1</span><span class="p">)</span>
+</code></pre></div>
+<div class='stream'>
+<pre>2.1049612709736554</pre>
+</div>
+
+<p>That&#39;s in radians. If we want it in degrees, we can either do the maths or
+specify the degrees option.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">atoms</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">Al1</span><span class="p">,</span> <span class="n">atoms</span><span class="o">.</span><span class="n">O1</span><span class="p">,</span> <span class="n">atoms</span><span class="o">.</span><span class="n">Si1</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div>
+<div class='stream'>
+<pre>120.60539686528409</pre>
+</div>
+
+<p>We could do a similar thing as we did with bond lengths to look at the Al-O-X
+bond angle distribution, where X is any second nearest neighbour.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">angles</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c"># Loop over every aluminium atom</span>
+<span class="k">for</span> <span class="n">atom_Al</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">species</span><span class="p">(</span><span class="s">&#39;Al&#39;</span><span class="p">):</span>
+
+    <span class="c"># Find all oxygens within 2.0 A of the Al atom, i.e. ones bonded</span>
+    <span class="k">for</span> <span class="n">atom_O</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">species</span><span class="p">(</span><span class="s">&#39;O&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">(</span><span class="n">atom_Al</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">):</span>
+
+        <span class="c"># Find all Si and Al within 2.0 of the bonded oxygen</span>
+        <span class="k">for</span> <span class="n">atom_X</span> <span class="ow">in</span> <span class="n">atoms</span><span class="o">.</span><span class="n">species</span><span class="p">(</span><span class="s">&#39;Si&#39;</span><span class="p">,</span> <span class="s">&#39;Al&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">(</span><span class="n">atom_O</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">):</span>
+
+            <span class="c"># Check that we haven&#39;t found the original Al atom! Otherwise angle will equal zero</span>
+            <span class="k">if</span> <span class="n">atom_Al</span> <span class="o">!=</span> <span class="n">atom_X</span><span class="p">:</span>
+                <span class="n">angle</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">atom_Al</span><span class="p">,</span> <span class="n">atom_O</span><span class="p">,</span> <span class="n">atom_X</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+                <span class="c"># Append it to our list</span>
+                <span class="n">angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&quot;Mean bond angle =&quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">(</span><span class="n">angles</span><span class="p">),</span> <span class="s">&quot;+-&quot;</span><span class="p">,</span> <span class="n">std</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+</code></pre></div>
+<div class='stream'>
+<pre>Mean bond angle = 119.244646177 +- 5.4306395789
+</pre>
+</div>
+
+<p>Plotting this distribution as a histogram we can see that there are two
+populations of bond angles, corresponding to the T1 (four-coordinated) and T2
+(three-coordinated) sites.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">hist</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<div class='stream'>
+<pre>(array([  6.,  20.,  22.,  26.,  16.,  16.,   8.,  13.,  14.,   3.,   0.,
+          0.,   0.,   6.,   4.,   4.,   3.,   1.,   4.,   2.]),
+ array([ 112.17244747,  113.33907751,  114.50570755,  115.67233759,
+         116.83896763,  118.00559767,  119.17222771,  120.33885775,
+         121.5054878 ,  122.67211784,  123.83874788,  125.00537792,
+         126.17200796,  127.338638  ,  128.50526804,  129.67189808,
+         130.83852812,  132.00515816,  133.1717882 ,  134.33841824,
+         135.50504828]),
+ &lt;a list of 20 Patch objects&gt;)</pre>
+</div>
+
+<p><img src="/images/tutorials/magres-tutorial-structural_22_1.png" alt="png"></p>
+
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row footer">
+    <div class='col-md-6 footer-left'>
+      <p><a href='mailto:timothy.green@gmail.com'>timothy.green@gmail.com</a></p>
+      <p><a href='http://twitter.com/tfgg2' target="_blank">Twitter @tfgg2</a></p>
+      <p><a href='http://github.com/tfgg' target='_blank'>Github tfgg</a></p>
+    </div>
+    <div class='col-md-6 footer-right'>
+      <address>
+      Department of Materials<br/>
+      University of Oxford<br/>
+      Parks Road<br/>
+      Oxford OX1 3PH<br/>
+      UK
+      </address>
+    </div>
+  </div>
+</div>
+
+
+  </body>
+</html>
+

@@ -92,20 +92,37 @@ div.post table {
 div.post div.barchart {
   width: 75%;
   height: 300px; }
-  div.post div.barchart svg path.line {
-    fill: none;
-    stroke: #333;
-    stroke-width: 2; }
-  div.post div.barchart svg path.line-1 {
-    stroke: #F66; }
-  div.post div.barchart svg path.line-2 {
-    stroke: #66F; }
-  div.post div.barchart svg path.domain {
-    fill: none;
-    stroke: #999; }
-  div.post div.barchart svg rect.bar {
-    fill: #3D83FB;
-    stroke: none; }
+  div.post div.barchart svg {
+    /* neutral */
+    /* Correct */
+    /* Wrong */ }
+    div.post div.barchart svg path.line {
+      fill: none;
+      stroke: #333;
+      stroke-width: 2; }
+    div.post div.barchart svg path.line-2 {
+      stroke: #FC3; }
+    div.post div.barchart svg path.line-3 {
+      stroke: #FC3;
+      stroke-dasharray: 5,5; }
+    div.post div.barchart svg path.line-4 {
+      stroke: #3F3; }
+    div.post div.barchart svg path.line-5 {
+      stroke: #3F3;
+      stroke-dasharray: 5,5; }
+    div.post div.barchart svg path.line-1 {
+      stroke: #F33;
+      stroke-dasharray: 5,5; }
+    div.post div.barchart svg path.line-6 {
+      stroke: #C6C; }
+    div.post div.barchart svg path.line-7 {
+      stroke: #F33; }
+    div.post div.barchart svg path.domain {
+      fill: none;
+      stroke: #999; }
+    div.post div.barchart svg rect.bar {
+      fill: #3D83FB;
+      stroke: none; }
 
 .page img.thesis_front {
   border: 1px solid #eee;

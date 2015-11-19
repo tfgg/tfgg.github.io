@@ -57,14 +57,47 @@ div.post {
                 stroke-width: 2;
             }
 
-            path.line-1 {
-                stroke: #F66;
+            /* neutral */
+            // 2 Unknown → Not standing
+            path.line-2 {
+                stroke: #FC3;
+            }
+           
+            // 3 Unknown → Standing
+            path.line-3 {
+                stroke: #FC3;
+                stroke-dasharray: 5,5;
             }
             
-            path.line-2 {
-                stroke: #66F;
+            /* Correct */
+            // 4 Standing → Standing
+            path.line-4 {
+                stroke: #3F3;
+            }
+            
+            // 5 Not standing → Not standing
+            path.line-5 {
+                stroke: #3F3;
+                stroke-dasharray: 5,5;
             }
 
+            /* Wrong */            
+            // Not standing → Standing
+            path.line-1 {
+                stroke: #F33;
+                stroke-dasharray: 5,5;
+            }
+
+            // 6 Standing (wrong constituency) → Standing
+            path.line-6 {
+                stroke: #C6C;
+            }
+
+            // 7 Standing → Not standing
+            path.line-7 {
+                stroke: #F33;
+            }
+            
             path.domain {
                 fill: none;
                 stroke: #999;

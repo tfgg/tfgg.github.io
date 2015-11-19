@@ -87,7 +87,7 @@ We can look at when a candidate was added, and how many candidate profiles we ha
 <script>
 d3.json("/files/ynmp/first_last.json", function(error, json) {
   if (error) return console.warn(error);
-  make_timeline_line("#graph_first_last", json.first, json.last, "Date", "Cumulative first/last edits");
+  make_timeline_line("#graph_first_last", [json.first, json.last], "Date", "Cumulative first/last edits");
 });
 </script>
 <!--<img alt"A statement of persons nominated in all its PDF glory" src="/images/ynmp_accuracy/first_last_edit.png"/>-->
@@ -240,6 +240,20 @@ We can also see how many we just didn’t know about, either that they were stan
 
 <div class='caption'>Status of candidates on the 1<sup>st</sup> March (rows) versus status on the 7<sup>th</sup> of May (columns)</div>
 
+<div id="graph_accuracy" class="barchart">
+</div>
+<script>
+d3.json("/files/ynmp/accuracy.json", function(error, json) {
+  if (error) return console.warn(error);
+  datas = Array();
+  for(key in json) {
+    console.log(key);
+    datas.push(json[key]);
+  }
+  console.log(datas);
+  make_timeline_line("#graph_accuracy", datas, "Date", "Cumulative first/last edits");
+});
+</script>
 <div class='caption'>Status of candidates over time versus final status</div>
 
 You can see that it was a gradual improvement towards the nomination date, at which point the last few candidates for each constituency were rapidly finalised and then didn’t change. For a long time there were just a lot of unknowns, mostly candidates that we didn’t know existed but also a lot of candidates from 2010 we didn’t know were standing again or not.

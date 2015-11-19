@@ -57,20 +57,42 @@ As YourNextMP keeps the version history of each candidate, we can reconstruct ea
 
 First and simplest is just how many edits were being made per day.
 
-<img alt"Edit rate" src="/images/ynmp_accuracy/edit_rate.png"/>
+<div id="graph_edit_rate" class="barchart"></div>
+<script>
+d3.json("/files/ynmp/edit_rate.json", function(error, json) {
+    if (error) return console.warn(error);
+    make_timeline_bar("#graph_edit_rate", json.data, "Date", "Edits");
+});
+</script>
+<!--<img alt"Edit rate" src="/images/ynmp_accuracy/edit_rate.png"/>-->
 <div class='caption'>
-   The number of edits per date 
+   The number of edits per day 
 </div>
 
-Some of the most furious days were probably bots, but very keen volunteers are a possibility!
+The busiest day was the automated import of the 2010 candidates, and after that it was a pretty solid rate from mid January until the end of April with the occasional spike. A couple of the most furious days were probably bots adding Twitter accounts or similar, but most were very keen volunteers! There have actually been 381 edits since the election, the main classes of these are
+
+- one volunteer added Wikipedia pages for every new MP, such as [Mhairi Black](https://en.wikipedia.org/wiki/Mhairi_Black)
+- another volunteer updated a number of Twitter handles which had changed once the election was over, such as [Bill Wallace MP](https://edit.yournextmp.com/person/3238) going back to BWallaceMP from BWallace4WPN when he was re-elected
+- while developing [Election Mentions](https://www.electionmentions.com/) I matched a number of 2015 candidates to their 2010 candidacy and merged them 
+- other requests for information to be updated or photos to be uploaded
+
+In total, they don't appear to indicate any significant post-election discovery of errors.
 
 ### First and last edits
 
 We can look at when a candidate was added, and how many candidate profiles we had in a final state, i.e. when the first and last edits were, given that they actually ran in the end. This looks at all edits except for the election results being added.
 
-<img alt"A statement of persons nominated in all its PDF glory" src="/images/ynmp_accuracy/first_last_edit.png"/>
+<div id="graph_first_last" class="barchart">
+</div>
+<script>
+d3.json("/files/ynmp/first_last.json", function(error, json) {
+  if (error) return console.warn(error);
+  make_timeline_line("#graph_first_last", json.first, json.last, "Date", "Cumulative first/last edits");
+});
+</script>
+<!--<img alt"A statement of persons nominated in all its PDF glory" src="/images/ynmp_accuracy/first_last_edit.png"/>-->
 <div class='caption'>
-    Time of first and last edits to candidates
+    Time of <span style='background:#fcc;'>first</span> and <span style='background:#ccf;'>last</span> edits to candidates who stood
 </div>
 
 For first edits, all remaining candidates were added within a day or two of nominations coming out (some councils were difficult to track down!), with the little bump at the end being the approximately 250 we hadn’t known about.

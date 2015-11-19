@@ -45,4 +45,35 @@ div.post {
             padding: 0.5rem 1rem;
         }
     }
+
+    div.barchart {
+        width: 75%;
+        height: 300px;
+
+        svg {
+            path.line {
+                fill: none;
+                stroke: #333;
+                stroke-width: 2;
+            }
+
+            path.line-1 {
+                stroke: #F66;
+            }
+            
+            path.line-2 {
+                stroke: #66F;
+            }
+
+            path.domain {
+                fill: none;
+                stroke: #999;
+            }
+
+            rect.bar {
+                fill: #3D83FB;
+                stroke: none;
+            }
+        }
+    }    
 }

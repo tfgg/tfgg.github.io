@@ -13,9 +13,9 @@ Installing and updating
 
 The following commands should be entered at the command line, usually with a program called something like `Terminal`. Incidentally, if you are using OS X, I recommend [iTerm2](http://iterm2.com/) as a good terminal to work with.
 
-### Summary
+## Summary
 
-Install Python and necessary packages using your operating system package manager, or get [Anaconda](https://store.continuum.io/cshop/anaconda/) then run the following commands in a terminal.
+Install Python and necessary packages using your operating system package manager, or get [Anaconda](https://store.continuum.io/cshop/anaconda/). Once you have Python installed, run the following commands in a terminal.
 
 ```bash
 cd ~
@@ -95,8 +95,10 @@ Installing
 
 Installing the library will give you access to the code and scripts from anywhere on your system. You will be able to import the `magres` module into your Python code and run scripts such as `extract-ms.py`.
 
-You can now install the library either system wide, which may need superuser privileges, or locally in your user directory, which may require modifying your `PATH` environment variable.
+You can now install the library either system wide, which may need superuser privileges, or locally in your user directory, which may require modifying your `PATH` environment variable. You could also install it in a [virtual environment](https://virtualenv.readthedocs.org/en/latest/), which will isolate it from the rest of your Python system, reducing the chance of dependency clashes and generally keeping things clean.
 
+
+### System wide
 To install system wide, in the directory that you downloaded and extracted the library to, run the following command
 
 ```bash
@@ -105,11 +107,39 @@ sudo python setup.py install
 
 you may need to enter a password. If this fails, you may not have superuser privileges, in which case you will have to install locally.
 
+### Locally for your user
+
 To install locally in your user directory, run the following command
 
 ```bash
 python setup.py install --user
 ```
+
+### In a virtual environment
+
+First, [get `virtualenv`](https://virtualenv.readthedocs.org/en/latest/) and ensure that it is installed. Then, create a virtual environment directory inside your `magres-format` directory.
+
+```bash
+cd magres-python
+virtualenv venv
+```
+
+Activate the virtual environment. You will need to do this every time you want to use MagresPython.
+
+```bash
+source venv/bin/activate
+```
+
+Now, install all the requirements and `magres-python`.
+
+```bash
+pip install -r requirements.txt
+python setup.py install
+``` 
+
+You should now have a clean, isolated setup of MagresPython and its dependencies.
+
+### Setting up scripts and `PATH`
 
 You may be prompted to add your user `bin` directory to your `PATH` environment variable, or you may find that scripts aren't executing properly. How you fix this depends on what shell you are using. To find out what shell you are using, run the following command
 

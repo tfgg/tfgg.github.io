@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link href='https://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+                font-family: 'cardo', serif;
+                font-size: 14pt;
+                max-width: 60rem;
+                margin:auto;
+                margin-top: 5rem;
+                margin-bottom: 5rem;
+                padding: 1rem;
+            }
+
+            h1.logo {
+                font-size: 4rem;
+                border-bottom: 0.25rem solid #D00;
+                font-style: italic;
+            }
+
+            p.intro {
+                font-size: 2rem;
+            }
+
+            div.foragainst {
+                text-align: center;
+                margin-top: 4rem;
+            }
+
+            div.foragainst button {
+                margin: 1rem;
+                padding: 1rem;
+                border: 0;
+                background: #CCF;
+                font-family: 'cardo', serif;
+                font-size: 2rem;
+                font-weight: bold;
+                box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.5);
+            }
+
+            div.foragainst button:hover, div.foragainst button.selected {
+                box-shadow: 0 0 0 0 white;
+                transform: translate(10px, 10px);
+                background: #669;
+                color: white;
+            }
+
+            div.policies {
+                margin-top: 4rem;
+            }
+
+            div.policies button {
+                margin: 1rem;
+                padding: 1rem;
+                border: 0;
+                background: #CFC;
+                font-family: 'cardo', serif;
+                font-size: 2rem;
+                font-weight: bold;
+                box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.5);
+                width: 30%;
+                display: block;
+                float: left;
+            }
+            
+            div.policies button:hover, div.policies button.selected {
+                box-shadow: 0 0 0 0 white;
+                transform: translate(10px, 10px);
+                background: #696;
+                color: white;
+            }
+
+            div.choice {
+                margin-top: 4rem;
+            }
+
+            div.choice p {
+                font-size: 1.6rem;
+            }
+
+            div.postcode {
+                margin-top: 4rem;
+            }
+
+            div.postcode p {
+                font-size: 1.6rem;
+            }
+
+            div.postcode label {
+                font-size: 1.5rem;
+                line-height: 2rem;
+                margin-right: 1.5rem;
+                line-height: 3rem;
+            }
+
+            div.postcode input {
+                font-size: 2rem;
+                width: 10rem;
+                line-height: 3rem;
+                padding: 0.25rem;
+                font-family: 'cardo', serif;
+            }
+
+            div.candidate {
+                margin-top: 2rem;
+                background: #eee;
+                padding: 1rem;
+            }
+
+            div.candidate h3, div.candidate h4 {
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            div.candidate span {
+                color: white;
+                padding: 0.25rem;
+                width: 5rem;
+                display: block;
+                text-align: center;
+            }
+
+            div.candidate span.agree {
+                background: #9C9;
+            }
+
+            div.candidate span.disagree {
+                background: #C99;
+            }
+
+            div.candidate p {
+                font-size: 1.2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="logo">Red Line Finder</h1>
+        <p class="intro">It's nearly polling day.</p>
+        <p class="intro">You're not sure who to vote for.</p>
+        <p class="intro">But, you know you will never vote for someone who is &hellip;</p>
+        <div class="foragainst">
+            <button class="selected">for</button> <button>against</button>
+        </div>
+        <div class="policies">
+            <button>Badger culling</button>
+            <button>Renewing trident</button>
+            <button>UK leaving the EU</button>
+            <button>Subsidising nuclear energy</button>
+            <button class="selected">A cap on net migration</button>
+            <button>Increasing income tax</button>
+            <div style="clear:both;"></div>
+        </div>
+        <div class="choice">
+            <h2>A cap on net migration</h2>
+            <p>A cap on net migration means limiting the total number of people coming to the UK every year, minus those leaving. This reflects the change in population of the UK ignoring births and deaths.</p>
+            <p>In 2010 the Conservative's stated goal was a cap of 100,000. Below is a graph of the net migration to the UK every year for the last 10 years.</p>
+        </div>
+        <div class="postcode">
+            <h2>Your candidates</h2>
+            <p>Enter your postcode to find out if your candidates agree with you.</p>
+            <label>Postcode</label> <input type="text" name="postcode" value="OX4 1AR"/>
+        </div>
+        <div class="candidates">
+            <div class="candidate">
+                <h3>Andrew Smith</h3>
+                <h4>Labour Party</h4>
+                <span class="agree">against</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a varius arcu, eget aliquam neque. Nulla dui lacus, condimentum interdum purus et, tincidunt vulputate ipsum. Nam egestas faucibus elit. Morbi blandit odio vitae velit porttitor, non vehicula nisl vehicula. Aliquam a libero placerat, mattis est quis, aliquet diam. In molestie quis orci nec vulputate.</p>
+            </div>
+        </div>
+        <div class="candidates">
+            <div class="candidate">
+                <h3>Marcus Sparkus</h3>
+                <h4>Conservative Party</h4>
+                <span class="disagree">for</span>
+                <p>Nam egestas faucibus elit. Morbi blandit odio vitae velit porttitor, non vehicula nisl vehicula. Aliquam a libero placerat, mattis est quis, aliquet diam. In molestie quis orci nec vulputate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a varius arcu, eget aliquam neque. Nulla dui lacus, condimentum interdum purus et, tincidunt vulputate ipsum. </p>
+            </div>
+        </div>
+        <div class="candidates">
+            <div class="candidate">
+                <h3>Trumpet Humpfadump</h3>
+                <h4>UKIP</h4>
+                <span class="disagree">party for</span>
+                <p>Trumpet Humpfadump hasn't told us what he thinks, but we think from what his party has said in its manifesto and the news that it's in favour of a cap on net migration.</p>
+                <p>Why not ask Trumpet Humpfadump what he thinks? <a href="">send email</a></p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -157,7 +157,7 @@ div.front_page {
       display: block;
       padding: 1em;
       background: #E0F0FA;
-      border-radius: 5px;
+      border-radius: 0.25rem;
       color: #517DA3;
       text-decoration: none;
       text-align: center;
@@ -190,13 +190,12 @@ div.front_page {
   div.front_page p.block-highlight {
     background: #EBEBEB;
     color: #003;
-    padding: 10px;
-    border-radius: 5px; }
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem; }
   div.front_page ul.publications {
     list-style: none;
     padding: 0; }
     div.front_page ul.publications li {
-      margin-bottom: 20px;
       font-size: 1.0em; }
       div.front_page ul.publications li span.me {
         text-decoration: underline; }

@@ -3,66 +3,24 @@ layout: post
 title: Follow up to standard codes for UK elections
 ---
 
-This is a semi-unpublished draft that I'll update as feedback/thoughts come from the [previous post](/2015/11/10/election-codes.html).
+This is a follow-on from my [previous post](/2015/11/10/election-codes.html). I was originally going to publish my full proposal in the first post, but decided to hold off in order to get feedback. I think this was a good idea, as the proposal has changed quite a bit in response to [feedback to that post](https://democracyclub.org.uk/blog/2015/11/12/help-us-make-id-election-uk/) and my [talk at Citizen Beta](/files/citizenbeta_december_2015.pdf)!
 
-## More motivation
+## Motivation
 
-Basically, I want a function that will take an election object and map it onto a unique code (or slug, or id)
+To go back over the original post, we want unique identifiers for UK elections. Once we have identifiers, we can hang lots of useful information off them:
 
-~~~python
-code = f(election)
-~~~
+- Polling station locations
+- Candidate lists
+- Financial reports
+- Election notices
 
-From here, there are two options
+This is all with the ultimate, citizen-centered goal, of reducing the cognitive load (or 'head space' as [Temi Ogunye's report put it]()) of taking part in UK democracy. In essence, current democracy is designed for the 'perfect' citizen who has the time and inclination to navigate the frustrating world of election data in order to become sufficiently informed.
 
-- everyone to be able to have the same function `f(election)` and, given reasonable knowledge about the election, construct the same code as everyone else
-- `f(election)` is determined by a central authority who everyone has to copy
+Modern democracy should use technology to remove these barriers. We think it's as simple a vision as, for example, Google Now being able to pop up a card that tells you there's an election next week, who the candidates are, and where your polling station is.
 
-Ideally, I want option one. It's more elegant and avoids the need for a promptly maintained central source. Even if a good central authority exists, such identifiers could simply degenerate into being good election slugs in URLs. I also like the idea that you can work out the identifier for a hypothetical future election. It also seems silly that we can't agree that the name of the 2015 General Election is `ge2015` (or similar).
+## Original proposal
 
-In favour of giving up and going with option two, arguably it's not possible or sensible to have a shared function `f(election)`. Good reasons are, e.g. if we were to include constituency names, there could be disagreements over their spelling (is it East Oxford or Oxford East?), there's potential for mistakes or change and uncertainty &mdash; we know there's a hypothetical EU referendum in 2016&ndash;17, but we don't know exacty _when_. Given this, the only option is for a central authority to set identifiers for the elections, this might be a random integer, or a URI with GUID, such as
-
-`http://www.bbc.co.uk/things/1e03d3fc-d4f4-4135-974a-5524cfd220bf`
-
-In engineering terms, such proposals are isomorphic to "pick a large, random, natural number and make sure everyone else knows it".
-
-
-## Concepts
-
-Many people opined that it should be international. I shyed away from discussing this in my original post, on the grounds that it introduced significantly more potential for strange edge cases and complexity in what I want to be a simple, crisp, proposal. I think that this is adequately solved by sticking the 'GB' country-level ISO code on the front, encompassing England, Wales, Scotland and Northern Ireland, to qualify an identifier as being UK-related.
-
-In feedback, Matthew Somerville drove a deeper wedge between the concept of an 'event' and an 'election', which is useful to talk about. Basically, are we looking at events, in which there might be multiple elections in a day, or single elections? Conceptually I had separated different types of election event, e.g. police and local, but lumped together similar elections as a single event, e.g. all local elections happening on the same day.
-
-I think, to be clearer, what we really want is elections. We can start with a concept of a candidacy in the 2015 general election to be the following tuple 
-
-<table class="wide">
-<tr>
-    <th>Date</th><th>Country</th><th>Assembly</th><th>Constituency</th><th>Party</th><th>Name</th>
-</tr>
-<tr>
-    <td>2015-05-07</td><td>GB</td><td>UK Parliament</td><td>Oxford East</td><td>Labour</td><td>Andrew Smith</td>
-</tr>
-</table>
-
-If the final three fields are [what YourNextMP crowd sourced](https://yournextmp.com/person/2208/andrew-smith), the first three fields are what we need to uniquely map into an election code. Similarly, a local election candidacy might be
-
-<table class="wide">
-<tr>
-    <th>Date</th><th>Country</th><th>Assembly</th><th>Ward</th><th>Party</th><th>Name</th>
-</tr>
-<tr>
-    <td>2014-05-22</td><td>GB</td><td>Oxford City Council</td><td>Jericho and Osney</td><td>Labour</td><td>Susanna Pressel</td>
-</tr>
-</table>
-
-of which, again, the first three fields tell us the election, and final three tell us the rest of the candidacy. 
-
-
-## The proposal
-
-Internally, [YourNextMP](https://www.yournextmp.com/) used year strings, '2010' and '2015' to distinguish the data fields about each election, but this isn't particularly helpful if there are many different types of election in a year!
-
-When I import candidate data into [Election Mentions](https://www.electionmentions.com/), which is designed to incorporate candidates from multiple elections, I convert '2010' and '2015' to 'ge2010' and 'ge2015', and then use 'eu2014' and 'pcc2012' to refer to the 2014 European Parliament election and 2012 Police and Crime Commissioner election. So far, the codes used are
+My original proposal was going to be something like
 
 | Election | Code |
 |----------|------|
@@ -71,57 +29,171 @@ When I import candidate data into [Election Mentions](https://www.electionmentio
 | Police and Crime Commissioner 2012 | pcc2012  |
 | European Parliament 2014 | eu2014 |
 
-All of these are nice, short codes, usually corresponding to the Twitter hashtag that was being used for that election &mdash; perhaps indicating that they're maximally understandable for their length. Short codes are appealing aesthetically and work nicely in URIs, e.g.
+So, cute short codes that work well as hashtags. But this rapidly runs into issues when you step away from general elections
 
-`http://www.yourcandidates.com/ge2015/oxford-east/`,
+- Internationalization
+- How are by-elections handled?
+- How are multiple elections in one year handled? (e.g. there were two general elections in 1974)
+- What is an election? Is each PCC a separate election? Mayors? Local councils?
+- How are constituencies/areas identified by name (if necessary)
 
-for a hypothetical generalized election website.
+There's also the strong argument that these sorts of identifiers-with-meaning are a bad idea, and we should just assign random numbers, perhaps qualified in a URL. I'm going to discuss each of these below.
+
+## Internationalization
+
+Several people opined that the identifiers should be internationalizable, so that similar codes could be developed in other countries. This seems best achieved by sticking the country code on the front of the identifier. The strange thing here is that the ISO 3166 code for the UK is `gb` rather than the expected `uk`. The `gb` code still includes Northern Ireland within it. Another principle would be to use the ccTLD, allowing us to use `uk`. However, sticking with ISO 3166 seems sensible.
+
+## By-elections and multiple elections in a year
+
+At first, I was going to suggest numbering by-elections sequentially, e.g. `ge2015-by1` would be the Oldham West and Royton by-election, the first of the new parliament. Based on feedback, many people suggested simply having the ISO 8601 date of the start of polling as part of the identifier. This works nicely, as it also deals with the issue of multiple elections in a year, such as the two general elections in 1974. This works so long as we never have two general elections on the same day.
+
+## What is an election?
+
+This is a surprisingly tricky difficult question to answer usefully. My original proposal seemed to reflect 'events' more than 'elections', lumping together all the local elections into one identifier. There's a range of possibly contradictory views
+
+- Is ever election notice a different election? If so, each parliamentary constituency is a separate election
+- Are elections to posts within the same assembly part of the same election? If so, all the parliamentary constituencies are in the same election
+- Are elections for solo posts, such as a city mayor or police and crime commisioner, separate elections?
+- Is each by-election a separate election? If so, by-elections happening on the same day are different.
+- Do different voting methods mean different elections? If so, Scottish Parliament constituency MSP elections are separate from regional MSPs, though they are elected to the same assembly
+
+Selfishly, I want identifiers which are maximally useful for the YourNextRepresentative (the generalized version of YourNextMP), and it's a bonus if they're picked up elsewhere. Approaching the problem this way will guarantee that it's useful for at least one project!
+
+The model I've come up with for an election, though this could still fail for certain edge cases, is by looking through the lens of a candidacy. I've laid out the different components of a candidacy below, and labelled groups of them by what I think defines certain concepts
+
+<style>
+div.post table.spans td {
+    border: 0;
+}
+
+div.post table.spans td.hack {
+    width: 0;
+}
+
+div.post table.spans td.span {
+}
+</style>
+<table class="wide spans">
+<tr>
+    <th>Date</th><th>Country</th><th>Election type</th><th>Election subtype</th><th>Area</th><th>Party</th><th>Name</th>
+</tr>
+<tr>
+    <td colspan="7" style="background:#fcc" class="span">Candidacy</td>
+</tr>
+<tr>
+    <td>&nbsp;</td><td colspan="3" style="background:#ffc;" class="span">Assembly</td><td colspan="3">&nbsp;</td>
+</tr>
+<tr>
+    <td>&nbsp;</td><td colspan="4" style="background:#cfc;" class="span">Post</td><td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+    <td colspan="5" style="background:#ccf;" class="span">By-election</td><td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+    <td colspan="4" style="background:#fcf;" class="span">Election</td><td colspan="3">&nbsp;</td>
+</tr>
+</table>
+
+The election type would be national-level assembles, or groups of elections, e.g.:  UK Parliament, Scottish Parliament, National Assembly of Wales, Northern Irish Assembly, Police and Crime Commissioner, City Mayor, London Assembly, or local authority.
+
+Election sub-types would depend on the election type. For example, for a local authority election, it would specify the council involved. For PCC or mayor, it would indicate the police area or city. For the Scottish Parliament, GLA or Welsh Assembly it would specify the type of post, e.g. region or constituency.
+
+So, [Andrew Smith's]() candidacy in the 2015 general election could be represented as
+
+<table class="wide">
+<tr>
+    <th>Date</th><th>Country</th><th>Election type</th><th>Area (constituency)</th><th>Party</th><th>Name</th>
+</tr>
+<tr>
+    <td style="background:#fcf;">2015-05-07</td><td style="background:#fcf;">GB</td><td style="background:#fcf;">UK Parliament</td><td>Oxford East</td><td>Labour</td><td>Andrew Smith</td>
+</tr>
+</table>
+
+and a candidate in the local election
+
+<table class="wide">
+<tr>
+    <th>Date</th><th>Country</th><th>Election type</th><th>Election sub-type</th><th>Area (ward)</th><th>Party</th><th>Name</th>
+</tr>
+<tr>
+    <td style="background:#fcf;">2014-05-22</td><td style="background:#fcf;">GB</td><td style="background:#fcf;">Local</td><td style="background:#fcf;">Oxford City Council</td><td>Jericho and Osney</td><td>Labour</td><td>Susanna Pressel</td>
+</tr>
+</table>
+
+and by-elections, the only case where the area is included,
+
+<table class="wide">
+<tr>
+    <th>Date</th><th>Country</th><th>Election type</th><th>Area (consituency)</th><th>Party</th><th>Name</th>
+</tr>
+<tr>
+    <td style="background:#ccf;">2015-12-03</td><td style="background:#ccf;">GB</td><td style="background:#ccf;">UK Parliament</td><td style="background:#ccf;">Oldham West and Royton</td><td>Labour</td><td>Michael Meacher</td>
+</tr>
+</table>
+
+For something like the London Mayoral election, or PCC election, it seems best to effectively consider each a single-post assembly.
+
+<table class="wide">
+<tr>
+    <th>Date</th><th>Country</th><th>Election type</th><th>Election subtype</th><th>Party</th><th>Name</th>
+</tr>
+<tr>
+    <td style="background:#fcf;">2015-12-03</td><td style="background:#fcf;">GB</td><td style="background:#fcf;">Mayoral</td><td style="background:#fcf;">London</td><td>Conservatives</td><td>Zac Goldsmith</td>
+</tr>
+</table>
+
+for the issue of different voting methods, this occurs in the Scottish Parliament (constituency and region), the National Assembly for Wales (constituency and region), and the London Assembly (constituency and additional).
+
+<table class="wide">
+<tr>
+    <th>Date</th><th>Country</th><th>Election type</th><th>Election subtype</th><th>Area (region)</th><th>Party</th><th>Name</th>
+</tr>
+<tr>
+    <td style="background:#fcf;">2015-05-05</td><td style="background:#fcf;">GB</td><td style="background:#fcf;">Scottish Parliament</td><td style="background:#fcf;">Constituency</td><td>Central Scotland</td><td>SNP</td><td>Alex Neil</td>
+</tr>
+</table>
+
+## Random identifiers or something else?
+
+Why not just use a random unique identifier? This was suggsted by a few people. This would involve a central authority issuing identifiers, e.g. [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) or the [Electoral Commission](), which everyone would refer to. The random identifier could even be part of a URI if you're into linked data.
+
+This means you don't have to suffer differences in opinion over how to spell constituencies, how to code specific elections, and you can even handle elections which haven't had their date set yet (e.g. the UK's EU referendum).
+
+Existing central authorities include
+
+- Wikipedia pages on elections / Wikidata
+- The Electoral Commission's financial database has identifiers for different elections
+- data.parliament.uk has [objects for parliamentary elections](http://lda.data.parliament.uk/elections.html)
+- The BBC has some election objects: http://www.bbc.co.uk/things/1e03d3fc-d4f4-4135-974a-5524cfd220bf
+
+If there's an authority that's willing to take responsibility for assigning IDs, that'd be great. I have a few reservations
+
+- An authority might not issue identifiers in a timely fashion. Ideally, we (Democracy Club) want identifiers for all 2016 elections, like, now
+- Each possible authority has a mandate for a different section of elections. Even the Electoral Commission doesn't appear to have much involvement in Parish Council elections. This makes it difficult for them to take responsibility for a central register of elections.
+- No-one else has handled our use case yet, so apparently no-one else has our needs. Hence, the way someone else handes identifiers might, for some reason, conflict with our needs. 
+- It's not necessary if we can define a good standard for generating identifiers, freeing everyone from having to coordinate
+
+If those don't convince you, which I can understand, you can probably stop reading here and just say that we should build a list of elections on, like, Wikidata. I imagine we'll publish our own dataset there, with any identifiers we come up with, and it might turn out people just want to use the Wikidata identifiers.
+
+Someone at Citizen Beta suggested taking [a hash](https://en.wikipedia.org/wiki/Hash_function) of the election notice published on the council website. This is crazy and I like it, but it means that election identifiers can't be generated until the election notices come out.
+
+## How are areas identified by name
+
+The above model of a by-election includes the post area. If we want to include this in the identifier, how do we do so? Natural language names often have the problem of different spellings, or layouts. For example, some people might write 'City of Durham', 'Durham City', or even 'Durham, City of'. A couple of people suggested using Office of National Statistics GSS codes, e.g. E14000641 for City of Durham constituency.
+
+## The proposal
 
 ### The requirements
 
-I think that good election codes
+I think that good election identifiers
 
-- are short and hashtag-esque
 - have a meaning guessable at a glance
 - work in URIs, i.e. they should only consist of [unreserved characters](http://www.ietf.org/rfc/rfc3986.txt): uppercase and lowercase letters, decimal digits, hyphen, period, underscore, and tilde
 - can be worked out independently, so no central authority, just a standard
 - can be worked out with minimal knowledge of previous elections 
 - can be worked out with no knowledge of other election types
+- can be partially parsed for routing information (but not necessarily invertible as a serialization of a data structure), e.g. knowing what country the election is in, so the correct repository can be checked
 - are static and don't depend on future elections
-
-This is why, sensible as the idea is, I don't think we should use the Wikipedia page corresponding to the election as its code. I also don't think we should use random integer codes for elections: they're not understandable at a glance, unlike a hashtag, require a central authority to set, and can't be sensibly ordered without full knowledge of every UK election that has ever happened.
-
-### The pattern
-
-There's a really brain dead-simple pattern emerging here: `[election type] + [year number]`.
-
-Another option would be `[election type] + [full date]`, such as `ge2015-05-07`.
-
-However, there are a few wrinkles that these scheme needs to handle: by-elections, and multiple elections of the same type happening in a year.
-
-### By-elections
-
-By-elections happen pretty regularly; there were five parliamentary by-elections in 2014. Some go past without anyone noticing, some are a major event. Either way, we need some way of assigning them a code.
-
-You could model by-elections as general elections except over a subset of seats, but it'd be unpleasant to have the code of a general election depend on how many by-elections had happened so far in a year.
-
-I think it's reasonable to know how many by-elections have happened since the last general election, so I propose that by-elections are coded as `[general election code] + -by + [by-election count]`, the hyphen to prevent clash with the multiple election notation explained below. So, for example, the first by-election after the 2010 general election, which happened on the 13<sup>th</sup> of January 2011 in Oldham East and Saddleworth, would be `ge2010-by1`. If multiple by-elections to the same assembly happen on the same day, they're coded as part of the same election.
-
-Another possibility is to code it as the year the by-election happened, so that first by-election of the 2010&ndash;2015 parliament would be `ge2011-by1`. I think this is a bit confusing, since there's no corresponding `ge2011`. 
-
-Another option would be to code by-elections by their location, 
-
-### Multiple elections in a year
-
-An election of a particular type can happen multiple times in a year. It doesn't happen often, but in 1974 there were two general elections, one on the 28<sup>th</sup> of February, resulting in a hung parliament, and one on the 10<sup>th</sup> of October, giving an overall majority to the Wilson government.
-
-Since we want election codes to be stable going forward, I propose that the first of those two elections would be `ge1974` and the second `ge1974b`, i.e. we add an incrementing letter for every additional election, starting from 'b'. Requiring the first election to be `ge1974a` would either require prescience or all general elections to be suffixed 'a', which is just plain ugly for such a rare case. The first by-election of the 1974-1979 parliament would be `ge1974b-by1`.
-
-We could go back to the previous suggestion that all elections be notated with the full date, e.g. `ge1974-02-28` and `ge1974-10-10`.
-
-### Mayoral elections
-
-Mayoral elections (London, Bristol, Liverpool and Salford in 2016, [17 in total](https://en.wikipedia.org/wiki/Directly_elected_mayors_in_England_and_Wales#List_of_directly_elected_mayors)) are a potentially interesting case. They're not really an assembly, they're just a series of independent posts. In a way, their election is more like a by-election than a general election. The elections will happen on the same day in the year, so they could just all be grouped together into something like `mayor2016`. Alternatively they could be separated by post, such as `mayor-london2016` and `mayor-bristol2016`, so they don't influence each other.
 
 ## Draft election types
 

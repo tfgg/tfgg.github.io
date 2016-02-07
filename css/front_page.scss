@@ -12,7 +12,7 @@ div.front_page {
                 display: block;
                 padding: 1em;
                 background: #E0F0FA;
-                border-radius: 5px;
+                border-radius: 0.25rem;
                 color: #517DA3;
                 text-decoration: none;
                 text-align: center;
@@ -65,8 +65,8 @@ div.front_page {
     p.block-highlight {
       background: $grey_highlight;
       color: #003;
-      padding:10px;
-      border-radius:5px;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
     }
 
     ul.publications {
@@ -74,7 +74,6 @@ div.front_page {
       padding:0;
 
       li {
-        margin-bottom:20px;
         font-size:1.0em;
 
         span.me {

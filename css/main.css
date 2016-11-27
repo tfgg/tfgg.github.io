@@ -150,18 +150,18 @@ div.front_page {
   margin-bottom: 10rem; }
   div.front_page ul#leftnav {
     margin: 0;
-    margin-top: 2em;
+    margin-top: 2rem;
     padding: 0;
     list-style: none; }
     div.front_page ul#leftnav li a:link {
       display: block;
-      padding: 1em;
+      padding: 1rem;
       background: #E0F0FA;
       border-radius: 0.25rem;
       color: #517DA3;
       text-decoration: none;
       text-align: center;
-      margin-bottom: 1em; }
+      margin-bottom: 1rem; }
   div.front_page ul.links {
     padding: 0;
     margin: 0;
@@ -196,7 +196,13 @@ div.front_page {
     list-style: none;
     padding: 0; }
     div.front_page ul.publications li {
-      font-size: 1.0em; }
+      font-size: 1.0em;
+      margin-bottom: 2rem; }
+      div.front_page ul.publications li div.name {
+        font-size: 1.4rem; }
+      div.front_page ul.publications li div.authors {
+        color: #666;
+        font-size: 1.0rem; }
       div.front_page ul.publications li span.me {
         text-decoration: underline; }
   div.front_page .col-right {
